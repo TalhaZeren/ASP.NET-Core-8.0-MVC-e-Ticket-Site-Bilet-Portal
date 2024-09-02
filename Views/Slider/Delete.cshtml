@@ -1,0 +1,52 @@
+﻿@model BiletPortal.Models.Slider
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Kaydırıcı silme işlemi</h1>
+
+<h3>Bu kaydırıcı resmini silmek istediğine emin misin ?</h3>
+<div>
+    <h4>Kaydırıcı</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.SliderName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.SliderName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Header1)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Header1)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Header2)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Header2)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Context)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Context)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.SliderImage)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.SliderImage)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="SliderId" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index">Listeye geri dön</a>
+    </form>
+</div>

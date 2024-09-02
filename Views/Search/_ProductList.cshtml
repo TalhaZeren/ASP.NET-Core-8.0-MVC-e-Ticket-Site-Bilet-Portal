@@ -1,0 +1,32 @@
+﻿<form id="searchForm" class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search" method="get" asp-action="SearchProduct" asp-controller="Search">
+    <div class="input-group">
+        <input type="text" id="searchTerm" class="form-control bg-light border-0 small" placeholder="Ara..." name="searchTerm" aria-label="Search" aria-describedby="basic-addon2">
+        <div class="input-group-append">
+            <button class="btn btn-primary" type="submit">
+                <i class="fas fa-search fa-sm"></i>
+            </button>
+        </div>
+    </div>
+</form>
+
+<div id="searchResults">
+    <!-- Arama sonuçları buraya yüklenecek -->
+</div>
+
+<script>
+    document.getElementById('searchTerm').addEventListener('keyup', function () {
+        var form = document.getElementById('searchForm');
+        var formData = new FormData(form);
+        var searchTerm = formData.get('searchTerm');
+
+        if (searchTerm.length > 0) {
+            fetch(`/Search/SearchProduct?searchTerm=${searchTerm}`)
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('searchResults').innerHTML = data;
+                });
+        } else {
+            document.getElementById('searchResults').innerHTML = '';
+        }
+    });
+</script>

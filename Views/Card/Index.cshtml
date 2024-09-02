@@ -1,0 +1,92 @@
+﻿@model BiletPortal.Dto.CardViewModel  
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<!-- Cart Start -->
+<div class="container-fluid pt-5">
+    <div class="row px-xl-5">
+        <div class="col-lg-8 table-responsive mb-5">
+            <table class="table table-bordered text-center mb-0">
+                <thead class="bg-secondary text-dark">
+                    <tr>
+                        <th>Etkinlik</th>
+                        <th>Fiyat</th>
+                        <th>Bilet Sayısı</th>
+                        <th>Toplam</th>
+                        <th>Kaldır</th>
+                    </tr>
+                </thead>
+                <tbody class="align-middle">
+
+                    @foreach (var item in Model.CardItems)
+                    {
+                        <tr>
+                            <td class="align-middle"><img src="/Urunler/@item.ProductPicture" alt="" style="width: 50px;">@item.ProductName</td>
+                            <td class="align-middle">@item.Price</td>
+                            <td class="align-middle">
+                                <div class="input-group quantity mx-auto" style="width: 100px;">
+                                    <div class="input-group-btn">
+                                        <a href="~Card/Decrease/@item.Quantity">
+                                        <button class="btn btn-sm btn-primary btn-minus" >
+                                            <i class="fa fa-minus"></i>
+                                        </button>
+                                        </a>
+                                    </div>
+                                    <input type="text" class="form-control form-control-sm bg-secondary text-center" value="@item.Quantity">
+                                    <div class="input-group-btn">
+                                        <a href="~Card/Add/@item.Quantity">
+                                        <button class="btn btn-sm btn-primary btn-plus">
+                                            <i class="fa fa-plus"></i>
+                                        </button>
+                                        </a>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="align-middle">@item.Total * @item.Quantity</td>
+                            <a href="~/Card/Remove/@item.ProductId">
+                            <td class="align-middle"><button class="btn btn-sm btn-primary"><i class="fa fa-times"></i></button></td></a>  
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+        </div>
+        <div class="col-lg-4">
+            @* <form class="mb-5" action="">
+                <div class="input-group">
+                    <input type="text" class="form-control p-4" placeholder="Coupon Code">
+                    <div class="input-group-append">
+                        <button class="btn btn-primary">Apply Coupon</button>
+                    </div>
+                </div>
+            </form> *@
+            <div class="card border-secondary mb-5">
+                <div class="card-header bg-secondary border-0">
+                    <h4 class="font-weight-semi-bold m-0">Sepet Özeti</h4>
+                </div>
+                
+                <div class="card-body">
+                     @foreach(var tickets in Model.CardItems){
+                    <div class="d-flex justify-content-between mb-3 pt-1">
+                        <h6 class="font-weight-medium">@tickets.Quantity </h6>
+                        <h6 class="font-weight-medium">@tickets.ProductName</h6>
+                            <h6 class="font-weight-medium"> (@tickets.Price ₺)</h6>
+                    </div>
+                   }
+                </div>
+                <div class="card-footer border-secondary bg-transparent">
+                    <div class="d-flex justify-content-between mt-2">
+                        <h5 class="font-weight-bold">Toplam</h5>
+                        <h5 class="font-weight-bold">@Model.GrandTotal</h5>
+                    </div>
+                    <a href="~/PayingPage/Index"><button class="btn btn-block btn-primary my-3 py-3">Devam Et</button>  </a>
+                  
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Cart End -->

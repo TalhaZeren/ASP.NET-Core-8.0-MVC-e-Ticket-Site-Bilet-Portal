@@ -1,0 +1,54 @@
+﻿@model IEnumerable<BiletPortal.Models.Slider>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.SliderName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Header1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Header2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Context)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SliderImage)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SliderName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Header1)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Header2)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Context)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SliderImage)
+                    <img src="~/SliderImage/@item.SliderImage" height="50px" width="50px" />
+
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.SliderId" class="btn btn-primary mx-4 px-2 mr-2">Düzenle</a>
+                    <a asp-action="Details" asp-route-id="@item.SliderId" class="btn btn-secondary mx-4 px-2">Detaylar</a>
+                    <a asp-action="Delete" asp-route-id="@item.SliderId" class="btn btn-danger mx-4 px-2">Sil</a>
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>

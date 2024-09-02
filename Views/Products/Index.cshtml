@@ -1,0 +1,55 @@
+﻿@model IEnumerable<BiletPortal.Models.Products>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Etkinlik Listesi</h1>
+
+
+<form id="searchForm" method="get" asp-action="Index" asp-controller="Products"
+       class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+    <div class="input-group">
+        <input type="text" name="searchTerm" id="searchTerm" placeholder="Ara..."
+               aria-label="Search" aria-describedby="basic-addon2">
+        <div class="input-group-append">
+            <button class="btn btn-primary" type="submit">
+                <i class="fas fa-search fa-sm"></i>
+            </button>
+        </div>
+    </div>
+</form>
+
+
+
+
+<p>
+    <a asp-action="Create">Yeni Etkinlik Oluştur</a>
+</p>
+
+
+<div id="searchResult">
+    
+    @await Html.PartialAsync("_ProductList",Model);
+
+</div>
+
+<script>
+    document.getElementById('searchTerm').addEventListener('keyup', function () {
+        var searchTerm = document.getElementById('searchTerm').value;
+
+        if (searchTerm.length > 0) {
+            fetch(`/Products/Index?searchTerm=${searchTerm}`)
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('searchResult').innerHTML = data;
+   
+                });
+        } else {
+            document.getElementById('searchResult').innerHTML = '';
+
+
+        }
+    });
+</script>

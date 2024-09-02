@@ -1,0 +1,132 @@
+﻿@model BiletPortal.Dto.PaymentDto
+
+<html>
+<head>
+    <style>
+        .payment-containerEextra {
+            display: flex;
+            justify-content: center;
+            align-items: center
+        }
+
+
+
+        .payment-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+
+        .odemeYontemleri {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 100%;
+        }
+
+
+
+    .ticketSummary{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;  
+    
+    }
+
+    </style>
+
+</head>
+
+
+<body>
+
+    <div class="container payment-container">
+        <div class="row justify-content-center">
+            <div >
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Ödeme Yöntemleri</h5>
+                    </div>
+                    <div class="card-body">
+                        <form asp-action="TakePayment" method="post" asp-controller="PayingPage">
+
+                            <div class="form-group">
+                                <label asp-for="Email" class="control-label">Mail Adresi</label>
+                                <input asp-for="Email" class="form-control" placeholder="Mail" />
+                                <span asp-validation-for="Email" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label asp-for="CardHolderName" class="control-label">Kart Üzerindeki İsim</label>
+                                <input asp-for="CardHolderName" class="form-control" placeholder="Kart Üzerindeki İsim" />
+                                <span asp-validation-for="CardHolderName" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-group mt-3">
+                                <label asp-for="CardNumber" class="control-label">Kart Numarası</label>
+                                <input asp-for="CardNumber" class="form-control" placeholder="XXXX XXXX XXXX XXXX" maxlength="19" pattern="\d{4} \d{4} \d{4} \d{4}" />
+                                <span asp-validation-for="CardNumber" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-group mt-3">
+                                <label>Son Kullanma Tarihi</label>
+                                <div class="d-flex">
+                                    <select asp-for="ExpirationDateMonth" class="form-control me-2">
+                                        <option value="">Ay</option>
+                                        <option value="01">01</option>
+                                        <option value="02">02</option>
+                                        <option value="03">03</option>
+                                        <option value="04">04</option>
+                                        <option value="05">05</option>
+                                        <option value="06">06</option>
+                                        <option value="07">07</option>
+                                        <option value="08">08</option>
+                                        <option value="09">09</option>
+                                        <option value="10">10</option>
+                                        <option value="11">11</option>
+                                        <option value="12">12</option>
+                                    </select>
+                                    <select asp-for="ExpirationDateYear" class="form-control">
+                                        <option value="">Yıl</option>
+                                        <option value="24">2024</option>
+                                        <option value="25">2025</option>
+                                        <option value="26">2026</option>
+                                        <option value="27">2027</option>
+                                        <option value="28">2028</option>
+                                        <option value="29">2029</option>    
+                                        <option value="30">2030</option>
+                                        <option value="31">2031</option>
+                                        <option value="32">2032</option>
+                                        <option value="33">2033</option>
+                                        <option value="34">2034</option>
+                                        <option value="35">2035</option>
+                                    </select>
+                                </div>
+                                
+                            </div>
+
+                            <div class="form-group mt-3">
+                                <label asp-for="CVV" class="control-label">Güvenlik Kodu (CVV)</label>
+                                <input asp-for="CVV" class="form-control" maxlength="3" placeholder="CVV" />
+                                <span asp-validation-for="CVV" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-group mt-4">
+                                    <input type="submit" class="btn btn-primary" />
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+</html>

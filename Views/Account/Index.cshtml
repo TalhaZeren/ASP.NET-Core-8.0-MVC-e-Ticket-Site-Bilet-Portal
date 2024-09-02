@@ -1,0 +1,47 @@
+﻿@model BiletPortal.Dto.AppUserEditDto
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Index</h1>
+
+
+<div class="row">
+    <div class="col-md-8">
+        <form method="post" asp-action="Arrangement" asp-controller="Account">
+            <div class="form-group">
+                <input asp-for="FirstName" placeholder="Adınızı Giriniz" class="form-control" />
+            </div>
+            
+            <div class="form-group">
+                <input asp-for="LastName" placeholder="Soyadınızı Giriniz" class="form-control" />
+            </div>
+
+            <div class="form-group">
+                <input asp-for="City" placeholder="Bulunduğunuz Şehri Giriniz" class="form-control" />
+            </div>
+
+
+            <div class="form-group">
+                <input asp-for="Email" placeholder="Email Adresinizi Giriniz" class="form-control" />
+            </div>
+
+            <div class="form-group">
+                <input asp-for="Password" placeholder="Şifrenizi Giriniz" class="form-control" />
+            </div>
+
+            <div class="form-group">
+                <input asp-for="ConfirmPassword" placeholder="Şifrenizi Tekrar Giriniz" class="form-control" />
+            </div>
+
+            <div class="form-group">
+                <input type="submit" placeholder="Düzenlemeyi Onayla" class="btn btn-primary btn-lg" />
+            </div>
+
+        </form>
+
+    </div>
+
+
+</div>

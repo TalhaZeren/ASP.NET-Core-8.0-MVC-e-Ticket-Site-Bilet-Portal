@@ -1,0 +1,56 @@
+﻿@model BiletPortal.Models.Slider
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Düzenle</h1>
+
+<h4>Kaydırıcı</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="SliderId" />
+            <div class="form-group">
+                <label asp-for="SliderName" class="control-label"></label>
+                <input asp-for="SliderName" class="form-control" />
+                <span asp-validation-for="SliderName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Header1" class="control-label"></label>
+                <input asp-for="Header1" class="form-control" />
+                <span asp-validation-for="Header1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Header2" class="control-label"></label>
+                <input asp-for="Header2" class="form-control" />
+                <span asp-validation-for="Header2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Context" class="control-label"></label>
+                <input asp-for="Context" class="form-control" />
+                <span asp-validation-for="Context" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SliderImage" class="control-label"></label>
+                <input asp-for="ImageUpload" class="form-control" />
+                <span asp-validation-for="ImageUpload" class="text-danger"></span>
+                <img src="~/SliderImage/@Model.SliderImage" height="50px" width="50px/>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Listeye geri dön</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

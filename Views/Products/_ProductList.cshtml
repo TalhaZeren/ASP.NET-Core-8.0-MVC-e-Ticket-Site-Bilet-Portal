@@ -1,0 +1,64 @@
+﻿@model IEnumerable<BiletPortal.Models.Products>
+
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductPicture)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Category)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductCode)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductDescription)
+                </td>
+                <td>
+                    @* @Html.DisplayFor(modelItem => item.ProductPicture) *@
+                    <img src="~/Urunler/@item.ProductPicture" width="25" height="25" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductPrice)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Category.CategoryName)
+                </td>
+                <td>
+                    <div class="d-flex justify-content-center">
+                        <a asp-action="Edit" asp-route-id="@item.ProductId" class="btn btn-primary mx-2">Düzenle</a>
+                        <a asp-action="Details" asp-route-id="@item.ProductId" class="btn btn-secondary mx-2">Detaylar</a>
+                        <a asp-action="Delete" asp-route-id="@item.ProductId" class="btn btn-danger mx-2">Sil</a>
+                    </div>
+
+                </td>
+            </tr>
+        }
+
+    </tbody>
+</table>
