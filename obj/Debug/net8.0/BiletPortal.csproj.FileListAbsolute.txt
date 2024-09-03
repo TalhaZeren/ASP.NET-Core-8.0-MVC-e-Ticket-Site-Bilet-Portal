@@ -263,3 +263,4 @@ D:\BiletPortal\BiletPortal\BiletPortal\bin\Debug\net8.0\BouncyCastle.Cryptograph
 D:\BiletPortal\BiletPortal\BiletPortal\bin\Debug\net8.0\MailKit.dll
 D:\BiletPortal\BiletPortal\BiletPortal\bin\Debug\net8.0\MimeKit.dll
 D:\BiletPortal\BiletPortal\BiletPortal\bin\Debug\net8.0\System.Formats.Asn1.dll
+D:\BiletPortal\BiletPortal\BiletPortal\obj\Debug\net8.0\BiletPortal.sourcelink.json

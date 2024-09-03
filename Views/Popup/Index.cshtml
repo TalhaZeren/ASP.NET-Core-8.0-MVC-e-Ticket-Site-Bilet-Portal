@@ -1,118 +1,253 @@
-﻿<html>
+﻿﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>How to Make a Popup</title>
+    <style>
 
-    <head>
-
-       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-       <title>Sipariş Durumu</title>
-       <link rel="stylesheet" href="style.css">
-
-       <style>
 
         .container {
-            width : 100%;
-            height : 100vh;
-            background : #3c5077;
-            display : flex;
-            align-items : center;
-            justify-content : center;
+            width: 100%;
+            height: 100vh;
+            background: linear-gradient(to right, #485563, #29323c);
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
-        .btn{
+
+        .btn {
             padding: 10px 60px;
-            background : #fff;
-            border : 0;
-            outline : none;
-            cursour : pointer ; 
-            font-size : 22px;
-            font-weight : 500px;
-            border-radius : 30px;
+            background: #fff;
+            border: 0;
+            outline: none;
+            cursor: pointer;
+            font-size: 22px;
+            font-weight: 500;
+            border-radius: 10px;
+            transition: transform 0.2s;
         }
 
-        .popup{
-            width : 400px;
-            background : #fff;
-            border-radius : 6px;    
-            position : absolute;
-            top : 50%;
-            left : 50%;
-            transform:  translate(-50%,-50%)scale(0.1);
-            text-align : center;
-            padding: 0 30px 30px;
-            color: #333;       
-            visibility : hidden;
-            transition : transform 0.4s, top 0.4s;
-        }
+            .btn:active {
+                transform: scale(0.95);
+            }
 
-        .open-popup{
+        .popup {
+            width: 400px;
+            background: #fff;
+            -webkit-border-radius: 6px;
+            -moz-border-radius: 6px;
+            border-radius: 6px;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.1);
+            text-align: center;
+            padding: 0 30px 60px;
+            color: #333;
             visibility: hidden;
-            top : 50%;
+            transition: all 0.4s ease-in-out;
+        }
+
+        .open-popup {
+            visibility: visible;
+            top: 50%;
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        .popup img {
+            width: 100px;
+            margin-top: -50px;
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            border-radius: 50%;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .popup h2 {
+            font-size: 38px;
+            font-weight: 500;
+            margin: 30px 0 10px;
+        }
+
+        .popup button {
+            width: 100%;
+            margin-top: 50px;
+            padding: 10px 0;
+            background-color: green;
+            color: #fff;
+            border: 0;
+            outline: none;
+            font-size: 18px;
+            border-radius: 4px;
+            box-shadow: 0 5px 5px rgba(0,0,0,0.2);
+        }
+
+    </style>
+
+</head>
+<body>
+
+
+
+    <div class="container">
+
+        <div class="popup" id="popup">
+            <img src="img/tick.png" alt="">
+            <h2>Tebrikler!</h2>
+            <p>Siparişiniz Alınmıştır.</p>
+            <a href="~/Home/Index">
+                <button type="button" onclick="closePopup()">Tamam</button>
+            </a>
+
+        </div>
+
+    </div>
+
+    <script>
+        let popup = document.getElementById('popup')
+
+        function openPopup() {
+            popup.classList.add('open-popup')
+        }
+
+        function closePopup() {
+            popup.classList.remove('open-popup')
+        }
+
+        window.onload = function () {
+            openPopup();
+        };
+
+    </script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@* <html>
+
+<head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sipariş Durumu</title>
+
+
+    <style>
+
+        .container {
+            width: 100%;
+            height: 100vh;
+            background: #3c5077;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 10px 60px;
+            background: #fff;
+            border: 0;
+            outline: none;
+            cursour: pointer;
+            font-size: 22px;
+            font-weight: 500px;
+            border-radius: 30px;
+        }
+
+        .popup {
+            width: 400px;
+            background: #fff;
+            border-radius: 6px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%)scale(0.1);
+            text-align: center;
+            padding: 0 30px 30px;
+            color: #333;
+            visibility: hidden;
+            transition: transform 0.4s, top 0.4s;
+        }
+
+        .open-popup {
+            visibility: hidden;
+            top: 50%;
             transform: translate(-50%,-50%)scale(1);
         }
 
 
-        .popup img{
-            width : 100px;
-            margin-top : -50px;
+        .popup img {
+            width: 100px;
+            margin-top: -50px;
             border-radius: 50px;
-            box-shadow : 0 2px 5px rgba(0,0,0,0.2);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
 
-        .popup h2{
-            font-size : 38px;
-            font-weight : 500px;
-            margin : 30px 0 10px;
+        .popup h2 {
+            font-size: 38px;
+            font-weight: 500px;
+            margin: 30px 0 10px;
         }
 
-        .popup button{
-            width : 100%;
-            margin-top : 50px;
-            padding : 10px 0 ;
-            background : #6fd649;
-            color : #fff;
-            border : 0;
-            outline : none;
+        .popup button {
+            width: 100%;
+            margin-top: 50px;
+            padding: 10px 0;
+            background: #6fd649;
+            color: #fff;
+            border: 0;
+            outline: none;
             font-size: 18px;
-            border-radius : 4px;
-            cursor : pointer;
+            border-radius: 4px;
+            cursor: pointer;
             box-shadow: 0 5px 5px rgba(0,0,0,0.2);
         }
 
+    </style>
 
-       </style>
+</head>
 
-    </head>
-
-     <body>
-         <div class="container">
+<body>
+    <div class="container">
 
         <button type="submit" class="btn" onclick="openPopup()">Tamam</button>
-             <div class="popup" id="popup">
-                 <img src="tick.png">
-                 <h2>Teşekkürler!</h2>
-                 <p>Siparişiniz başarıyla alınmıştır.</p>
-                 <button type="button" onclick="closePopup()">Tamam</button>
+        <div class="popup" id="popup">
+            <img src="tick.png">
+            <h2>Teşekkürler!</h2>
+            <p>Siparişiniz başarıyla alınmıştır.</p>
+            <button type="button" onclick="closePopup()">Tamam</button>
 
-             </div>
-         </div>
+        </div>
+    </div>
 
+    <script>
 
+        let popup = document.getElementById("popup");
 
+        function openPopup() {
+            popup.classList.add("open-popup");
+        }
+        function closePopup() {
+            popup.classList.remove("open-popup");
+        }
 
-
-
-         <script>
-
-             let popup = document.getElementById("");
-
-             function openPopup() {
-                 popup.classList.add("open-popup"); 
-             }
-             function closePopup() {
-                 popup.classList.remove("open-popup");
-             }
-
-         </script>
+    </script>
 
 
-     </body>
+</body>
 
-</html>
+</html> *@

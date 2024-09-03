@@ -5,8 +5,8 @@
 
 @if (SignInManager.IsSignedIn(User))
 {
-    <a href="/Home/Index" class="nav-item nav-link">@User.Identity.Name</a>
-    <a href="/Login/Index" class="nav-item nav-link">Güvenli Çıkış</a>
+    <a href="/Profile/Index" class="nav-item nav-link">@User.Identity.Name</a>
+    <a href="~/Popup/PopupForLogout" class="nav-item nav-link">Güvenli Çıkış</a>
     <a class="nav-item nav-link">&nbsp;&nbsp;</a>
     <a class="nav-item nav-link">&nbsp;&nbsp;</a>
 }

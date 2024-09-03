@@ -19,7 +19,7 @@ namespace BiletPortal.Controllers
         {
         await _signInManager.SignOutAsync();
             ViewBag.Mesaj = "Sistemden çıkış yapılmıştır.";
-            return View("Index","Home");
+            return RedirectToAction("Index","Home");
         }
     }
 }

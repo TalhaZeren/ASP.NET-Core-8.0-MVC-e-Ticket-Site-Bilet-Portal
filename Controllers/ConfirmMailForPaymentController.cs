@@ -36,7 +36,7 @@ namespace BiletPortal.Controllers
                 {
                     payment.IsSuccessful = true;
                     await _context.SaveChangesAsync();
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Index", "Popup");
                 }
             }
             return View();

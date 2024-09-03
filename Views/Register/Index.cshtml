@@ -1,4 +1,6 @@
-﻿@{
+﻿@model BiletPortal.Dto.AppUserRegisterDto
+
+@{
     Layout = null;
 }
 
@@ -48,39 +50,46 @@
                                         <h1 class="h4 text-gray-900 mb-4">Hoşgeldin!</h1>
                                     </div>
                                     <form class="user" method="post" asp-action="Index" asp-controller="Register">
-
+                                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                                         <div class="form-group">
                                             <input type="text" name="FirstName" class="form-control form-control-user"
                                                    placeholder="Adınız">
+                                            <span asp-validation-for="FirstName" class="text-danger"></span>
                                         </div>
 
                                         <div class="form-group">
                                             <input type="text" name="LastName" class="form-control form-control-user"
                                                    id="exampleInputPassword" placeholder="Soyadınız">
+                                            <span asp-validation-for="LastName" class="text-danger"></span>
                                         </div>
 
                                         <div class="form-group">
                                             <input type="text" name="UserName" class="form-control form-control-user"
                                                    id="exampleInputPassword" placeholder="Kullanıcı Adınız">
+                                            <span asp-validation-for="UserName" class="text-danger"></span>
                                         </div>
 
                                         <div class="form-group">
                                             <input type="text" name="City" class="form-control form-control-user" placeholder="Şehir">
+                                            <span asp-validation-for="City" class="text-danger"></span>
                                         </div>
 
                                         <div class="form-group">
                                             <input type="email" name="Email" class="form-control form-control-user"
                                                    id="exampleInputPassword" placeholder="e-mail Adresinisi Giriniz">
+                                            <span asp-validation-for="Email" class="text-danger"></span>
                                         </div>
 
                                         <div class="form-group">
                                             <input type="password" name="Password" class="form-control form-control-user"
                                                    id="exampleInputPassword" placeholder="Şifreniz">
+                                            <span asp-validation-for="Password" class="text-danger"></span>
                                         </div>
 
                                         <div class="form-group">
                                             <input type="password" name="ConfirmPassword" class="form-control form-control-user"
                                                    id="exampleInputPassword" placeholder="Şifreyi Onayla">
+                                            <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
                                         </div>
 
                                         <input type="submit" value="Kayıt Ol" class="btn btn-primary btn-user btn-block" />

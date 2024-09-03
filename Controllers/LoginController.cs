@@ -1,9 +1,11 @@
 ﻿using BiletPortal.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BiletPortal.Controllers
 {
+   
     public class LoginController : Controller
     {
 
@@ -26,6 +28,12 @@ namespace BiletPortal.Controllers
         [HttpPost]
         public async Task<IActionResult> TakeParameters(LoginViewModel comingParameters)
         {
+
+            if (!ModelState.IsValid) { 
+            return View("Index",comingParameters);
+            
+            }
+
             var result = await _signInManager.PasswordSignInAsync(comingParameters.UserName, comingParameters.Password,false,true);
 
             if (result.Succeeded)
@@ -36,11 +44,9 @@ namespace BiletPortal.Controllers
                     return RedirectToAction("Index","Home");
                 }
             }
-            else
-            {
-                return RedirectToAction("Index", "Login");
-            }
-            return RedirectToAction("Index", "Login");
+
+            ModelState.AddModelError("", "Kullanıcı Adı veya parola hatalı");
+            return View("Index",comingParameters);
         }
     }
 }

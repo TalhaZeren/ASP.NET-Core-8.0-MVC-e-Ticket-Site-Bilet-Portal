@@ -29,8 +29,10 @@ namespace BiletPortal.Dto
         public string PhoneNumber { get; set; }
 
         [Display(Name = "Şifre")]
-        [Required(ErrorMessage = "'Şifre' bölümü boş bırakılamaz.")]
+        [Required(ErrorMessage = "Parola Boş Bırakılamaz.")]
         public string Password { get; set; }
+        [Display(Name = "Şifre Tekrar")]
+        [Required(ErrorMessage = "Parola Boş Bırakılamaz.")]
         public string ConfirmPassword { get; set; }                     
 
     }

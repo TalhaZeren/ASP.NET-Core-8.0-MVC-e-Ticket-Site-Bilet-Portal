@@ -42,6 +42,29 @@ namespace BiletPortal.Controllers
                 UserName = appUserRegisterDto.UserName,
                 ConfirmCode = code,
             };
+
+            if (!ModelState.IsValid) 
+            {
+
+                var tempMail = await _userManager.FindByEmailAsync(appUserRegisterDto.Email);
+
+                var tempName = await _userManager.FindByNameAsync(appUserRegisterDto.UserName);
+                if (tempMail != null)
+                {
+                    ModelState.AddModelError("", "Girdiğiniz mail adresi zaten kullanılıyor.");
+                    return View(appUserRegisterDto);
+                }
+                if (tempName != null) 
+                {
+                    ModelState.AddModelError("", "Girdiğiniz kullanıcı adı zaten kullanılıyor.");
+                   return View(appUserRegisterDto);
+                }
+                if (appUserRegisterDto.Password != appUserRegisterDto.ConfirmPassword)
+                {
+                    ModelState.AddModelError("", "Parolalar uyuşmuyor.");
+                    return View(appUserRegisterDto);
+                }
+            }
             var result = await _userManager.CreateAsync(appUser,appUserRegisterDto.Password);
 
             if (result.Succeeded)
@@ -68,10 +91,12 @@ namespace BiletPortal.Controllers
             {
                 foreach (var item in result.Errors)
                 {
-                    ModelState.AddModelError("",item.Description);
+                    ModelState.AddModelError("", "Lütfen kullanıcı bilgilerini doğru giriniz.");
+                    return View("Index", appUserRegisterDto);
                 }
             }
-            return View();
+            ModelState.AddModelError("", "Lütfen kullanıcı bilgilerini doğru giriniz.");
+            return View(appUserRegisterDto);
         
         }  
     }

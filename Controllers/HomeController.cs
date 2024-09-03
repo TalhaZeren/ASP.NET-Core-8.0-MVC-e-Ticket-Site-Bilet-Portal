@@ -1,5 +1,6 @@
 using BiletPortal.Data;
 using BiletPortal.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -9,14 +10,13 @@ namespace BiletPortal.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly ApplicationDbContext _context;
-
-        public HomeController(ILogger<HomeController> logger,ApplicationDbContext context)
+        private readonly UserManager<AppUser> _userManager;
+        public HomeController(ILogger<HomeController> logger,ApplicationDbContext context,UserManager<AppUser> userManager)
         {
+            _userManager = userManager;
             _logger = logger;
             _context = context;
         }
-
-
         public IActionResult Detail(int? id)
         {
             var result = _context.Products.Find(id);
