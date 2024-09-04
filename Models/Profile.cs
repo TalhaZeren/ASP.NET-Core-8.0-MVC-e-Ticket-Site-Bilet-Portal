@@ -12,7 +12,7 @@ namespace BiletPortal.Models
             public string Email { get; set; }
             public string TicketType { get; set; }
             public string ActivityName { get; set; }
-            public Profile() { }
+            public Profile() { }    
 
             public Profile(AppUser appUser, Products products)
             {

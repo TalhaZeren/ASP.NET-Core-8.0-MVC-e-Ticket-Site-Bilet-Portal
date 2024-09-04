@@ -22,7 +22,7 @@ namespace BiletPortal.Dto
 
         [Display(Name = "Email")]
         [Required(ErrorMessage = "'Email' bölümü boş bırakılamaz.")]
-        public string Email { get; set; }
+        public string? Email { get; set; } = string.Empty;
 
         [Display(Name = "Telefon Numarası")]
         [Required(ErrorMessage = "'Telefon Numarası' bölümü boş bırakılamaz.")]
