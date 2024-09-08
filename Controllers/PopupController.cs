@@ -14,6 +14,10 @@ namespace BiletPortal.Controllers
          return  View();
         }
 
+        public IActionResult AddToCardAndContinue()
+        {
+            return View();
+        }
 
     }
 }

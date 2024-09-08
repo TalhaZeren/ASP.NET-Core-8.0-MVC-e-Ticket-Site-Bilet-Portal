@@ -88,18 +88,21 @@
 </head>
 <body>
 
+
+
+    <div class="container">
+
         <div class="popup" id="popup">
-            <h2>Çıkış</h2>
-            <p>Çıkış Yapmak İstediğinden emin misin?</p>
-            <a href="~/Logout/Index">
-                <button type="button" style="background-color:limegreen" onclick="closePopup()">Evet</button>
+            <img src="img/tick.png" alt="">
+            <h2>Tebrikler!</h2>
+            <p>Biletiniz Sepete Eklendi.</p>
+            <a href="~/SelectSeat/Index">
+                <button type="button" onclick="closePopup()">Devam Et</button>
             </a>
-            <a href="~/Home/Index">
-                <button type="button" style="background-color:red" onclick="closePopup()">Hayır</button>
-            </a>
+
         </div>
 
- 
+    </div>
 
     <script>
         let popup = document.getElementById('popup')
@@ -120,6 +123,4 @@
 
 </body>
 </html>
-
-
 

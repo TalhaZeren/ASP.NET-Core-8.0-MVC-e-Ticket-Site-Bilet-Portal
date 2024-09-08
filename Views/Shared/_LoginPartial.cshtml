@@ -5,16 +5,15 @@
 
 @if (SignInManager.IsSignedIn(User))
 {
-    <a href="/Profile/Index" class="nav-item nav-link">@User.Identity.Name</a>
-    <a href="~/Popup/PopupForLogout" class="nav-item nav-link">Güvenli Çıkış</a>
+    <a href="/Profile/Index" class="nav-item nav-link"><img src="/Logo/people_4740890.png" width="30" height="30" /> <span style="color:black">  @User.Identity.Name </span> </a>
+    <a href="~/Popup/PopupForLogout" class="nav-item nav-link"><img src="/Logo/log_10067373.png" width="30" height="30" /> <span style="color:black">  Güvenli Çıkış</span></a>
     <a class="nav-item nav-link">&nbsp;&nbsp;</a>
     <a class="nav-item nav-link">&nbsp;&nbsp;</a>
 }
 else
 {
-    <a href="/Login/Index" class="nav-item nav-link">Giriş</a>
-    <a href="/Register/Index" class="nav-item nav-link">Kaydol</a>
+    <a href="/Login/Index" class="nav-item nav-link"> <img src="/Logo/loginLogo.png" width="30" height="30" /><span style="color:black"> Giriş</span></a>
+    <a href="/Register/Index" class="nav-item nav-link"><img src="/Logo/registerLogo.png" width="30" height="30" /> <span style="color:black"> Kaydol</span> </a>
     <a class="nav-item nav-link">&nbsp;&nbsp;</a>
     <a class="nav-item nav-link">&nbsp;&nbsp;</a>
-}
 }

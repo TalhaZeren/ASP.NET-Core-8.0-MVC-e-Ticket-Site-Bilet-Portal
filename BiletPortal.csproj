@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="Views\Popup\AddToCardAndContinue.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="MailKit" Version="4.7.1.1" />
     <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.1.39" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.7" />
@@ -25,8 +29,19 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\SliderImage\" />
     <Folder Include="wwwroot\Urunler\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Views\Popup\AddToCardAndContinue.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="Views\Popup\AddToCardAndContinue.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Views\Popup\AddToCardAndContinue.cshtml" />
   </ItemGroup>
 
 </Project>

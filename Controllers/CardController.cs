@@ -2,6 +2,7 @@
 using BiletPortal.Dto;
 using BiletPortal.Models;
 using BiletPortal.Session;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BiletPortal.Controllers
@@ -9,10 +10,12 @@ namespace BiletPortal.Controllers
     public class CardController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly SignInManager<AppUser> _signInManager;
 
-        public CardController(ApplicationDbContext context)
+        public CardController(ApplicationDbContext context, SignInManager<AppUser> signInManager)
         {
             _context = context;
+            _signInManager = signInManager; 
         }
         public IActionResult Index()
         {
@@ -28,21 +31,27 @@ namespace BiletPortal.Controllers
        
         public async Task<IActionResult>Add(int? id)
         {
-            Products? product = await _context.Products.FindAsync(id);
-            // Convert Json Format To Object and Checked null or non null
-            List<CardItem> items = HttpContext.Session.GetJson<List<CardItem>>("Card") ?? new List<CardItem>(); 
-            CardItem cardItem = items.FirstOrDefault(x => x.ProductId == id);
-            if(cardItem == null)
+            if (_signInManager.IsSignedIn(User))
             {
-                items.Add(new CardItem(product));
+                Products? product = await _context.Products.FindAsync(id);
+                // Convert Json Format To Object and Checked null or non null
+                List<CardItem> items = HttpContext.Session.GetJson<List<CardItem>>("Card") ?? new List<CardItem>();
+                CardItem cardItem = items.FirstOrDefault(x => x.ProductId == id);
+                if (cardItem == null)
+                {
+                    items.Add(new CardItem(product));
+                }
+                else
+                {
+                    cardItem.Quantity += 1;
+                }
+                HttpContext.Session.SetJson("Card", items);   // Json Format was Converted.
+                return Json(new { success = true, message = "Bilet Sepete Eklendi" });
+                
             }
-            else
-            {
-                cardItem.Quantity += 1;
-            }
-            HttpContext.Session.SetJson("Card",items);   // Json Format was Converted.
-            TempData["Message"] = "The Ticket was added succesfuly!";
-            return Redirect(Request.Headers["Referer"].ToString());
+
+            return Json(new { success = false, message = "Oturum açmanız gerekiyor." });
+           
         }
 
         public async Task<IActionResult> Decrease(int? id)
@@ -71,6 +80,8 @@ namespace BiletPortal.Controllers
             if ((card.Count > 0))
             {
                 HttpContext.Session.Remove("Card");
+
+
             }
             {
                 HttpContext.Session.SetJson("Card", card);

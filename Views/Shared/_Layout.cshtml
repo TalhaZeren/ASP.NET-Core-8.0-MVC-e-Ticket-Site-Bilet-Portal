@@ -10,7 +10,7 @@
 
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css">
     <!-- Libraries Stylesheet -->
     <link href="~/Home/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
 
@@ -54,11 +54,12 @@
             </div>
         </div>
         <div class="row align-items-center py-3 px-xl-5">
-            <div class="col-lg-3 d-none d-lg-block">
+            <div >
                 <a href="~/Home/Index" class="text-decoration-none">
-                    <h2 class="m-0 display-7 font-weight-semi-bold"><img src="~/Logo/biletPortalLogo.png" weight="80px" height="80px"/>Bilet Portal</h2>
+                    <h2 class="m-0 display-7 font-weight-semi-bold" style="font-family:'TR Avatar'  "><img src="~/Logo/ticket_15552065.png" weight="45px" height="45px" />  <span style="color:mediumvioletred">Bilet</span> Portal</h2>
                 </a>
             </div>
+            
           @*   <div class="col-lg-6 col-6 text-left">
                 <form action="">
                     <div class="input-group">
@@ -70,9 +71,23 @@
                         </div>
                     </div>
                 </form>
-            </div> *@
-            @await Component.InvokeAsync("CardSumList")
+            </div> *@   
+            <a href="#PopularListLink" class="nav-item nav-link" style="scroll-behavior:smooth; color:black"><img src="/Logo/film-reel_3172476.png" width="30" height="30" />     Sinema</a>
+            <a href="#TheatreListLink" class="nav-item nav-link" style="scroll-behavior:smooth;color:black">  <img src="/Logo/theater_708732.png" width="30" height="30" />Tiyatro </a>
+            <a href="#StandUpListLink" class="nav-item nav-link" style="scroll-behavior:smooth;color:black"><img src="/Logo/microphone-stand_15092109.png" width="30" height="30" /> Stand Up</a>
+            <a href="#ConcertListLink" class="nav-item nav-link" style="scroll-behavior:smooth;color:black"><img src="/Logo/karaoke_5350440.png" width="30" height="30" />  Konser</a>
+            <a href="#SporListLink" class="nav-item nav-link" style="scroll-behavior:smooth;color:black"> <img src="/Logo/basketball-court_8328665.png" width="30" height="30" />  Spor</a>
+      
+            @await Component.InvokeAsync("CardSumList") 
+
+            <partial name="_LoginPartial" />
+         
+
+         
+               <!--For Login and Register Proccesses -->
+           
         </div>
+
     </div>
     <!-- Topbar End -->
     <!-- Navbar Start -->

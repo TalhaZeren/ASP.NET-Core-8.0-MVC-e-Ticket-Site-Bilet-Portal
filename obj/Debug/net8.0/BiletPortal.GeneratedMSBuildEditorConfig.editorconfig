@@ -82,6 +82,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcZGVuZW1lIENvbnRyb2xsZXJcc2xpZGVyX2RlbmVtZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/BiletPortal/BiletPortal/BiletPortal/Views/Home/Deneme.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxEZW5lbWUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/BiletPortal/BiletPortal/BiletPortal/Views/Home/Detail.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxEZXRhaWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 

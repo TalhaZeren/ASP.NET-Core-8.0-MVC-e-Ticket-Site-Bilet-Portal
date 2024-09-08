@@ -13,14 +13,16 @@ namespace BiletPortal.Controllers
 
         private readonly ApplicationDbContext _context;
         private readonly SignInManager<AppUser> _signInManager;
+     
 
         public SelectSeatController(ApplicationDbContext context, SignInManager<AppUser> signInManager)
         {
+          
             _context = context; 
             _signInManager = signInManager;
         }
 
-       
+        [HttpGet]
         public IActionResult Index()
         {
             if (_signInManager.IsSignedIn(User))
@@ -31,15 +33,13 @@ namespace BiletPortal.Controllers
         }
      
         [HttpPost]
-        public async Task<IActionResult> SaveSeats(string[] seatIds)
+        public async Task<IActionResult> SaveSeats(string seatIds)
         {
-            List<CardItem> card;
-
+          
             if (seatIds != null && seatIds.Length > 0 )
             {
-                foreach (var seatId in seatIds)
-                {
-                    var item = await _context.Seat.FirstOrDefaultAsync(s => s.seatIdNumber == seatId);
+                
+                    var item = await _context.Seat.FirstOrDefaultAsync(s => s.seatIdNumber == seatIds);
                     if (item != null) 
                     {
                         return Json(new { full = true });
@@ -47,13 +47,13 @@ namespace BiletPortal.Controllers
 
                     var newSeat = new Seat
                     {
-                        seatIdNumber = seatId,
+                        seatIdNumber = seatIds,
                         SeatNumber = "Belirli bir numara", // Bu değeri dinamik olarak belirlemek daha iyi olabilir.
                         IsBooked = true
                     };
 
                     _context.Seat.Add(newSeat);
-                }
+                
 
                 await _context.SaveChangesAsync();
 

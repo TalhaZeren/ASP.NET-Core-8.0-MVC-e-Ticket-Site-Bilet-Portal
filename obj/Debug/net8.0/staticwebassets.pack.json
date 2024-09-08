@@ -8113,16 +8113,76 @@
       "PackagePath": "staticwebassets\\LoginPageImage\\LoginPageImage.jpg"
     },
     {
+      "Id": "D:\\BiletPortal\\BiletPortal\\BiletPortal\\wwwroot\\LoginPageImage\\tick.png",
+      "PackagePath": "staticwebassets\\LoginPageImage\\tick.png"
+    },
+    {
+      "Id": "D:\\BiletPortal\\BiletPortal\\BiletPortal\\wwwroot\\Logo\\ancientTheatre.jpg",
+      "PackagePath": "staticwebassets\\Logo\\ancientTheatre.jpg"
+    },
+    {
+      "Id": "D:\\BiletPortal\\BiletPortal\\BiletPortal\\wwwroot\\Logo\\basketball-court_8328665.png",
+      "PackagePath": "staticwebassets\\Logo\\basketball-court_8328665.png"
+    },
+    {
       "Id": "D:\\BiletPortal\\BiletPortal\\BiletPortal\\wwwroot\\Logo\\biletPortalLogo.png",
       "PackagePath": "staticwebassets\\Logo\\biletPortalLogo.png"
+    },
+    {
+      "Id": "D:\\BiletPortal\\BiletPortal\\BiletPortal\\wwwroot\\Logo\\film-reel_3172476.png",
+      "PackagePath": "staticwebassets\\Logo\\film-reel_3172476.png"
+    },
+    {
+      "Id": "D:\\BiletPortal\\BiletPortal\\BiletPortal\\wwwroot\\Logo\\karaoke_5350440.png",
+      "PackagePath": "staticwebassets\\Logo\\karaoke_5350440.png"
+    },
+    {
+      "Id": "D:\\BiletPortal\\BiletPortal\\BiletPortal\\wwwroot\\Logo\\log_10067373.png",
+      "PackagePath": "staticwebassets\\Logo\\log_10067373.png"
+    },
+    {
+      "Id": "D:\\BiletPortal\\BiletPortal\\BiletPortal\\wwwroot\\Logo\\loginLogo.png",
+      "PackagePath": "staticwebassets\\Logo\\loginLogo.png"
+    },
+    {
+      "Id": "D:\\BiletPortal\\BiletPortal\\BiletPortal\\wwwroot\\Logo\\microphone-stand_15092109.png",
+      "PackagePath": "staticwebassets\\Logo\\microphone-stand_15092109.png"
+    },
+    {
+      "Id": "D:\\BiletPortal\\BiletPortal\\BiletPortal\\wwwroot\\Logo\\people_4740890.png",
+      "PackagePath": "staticwebassets\\Logo\\people_4740890.png"
+    },
+    {
+      "Id": "D:\\BiletPortal\\BiletPortal\\BiletPortal\\wwwroot\\Logo\\pexels-husam-wafaei-682295758-27927625.jpg",
+      "PackagePath": "staticwebassets\\Logo\\pexels-husam-wafaei-682295758-27927625.jpg"
+    },
+    {
+      "Id": "D:\\BiletPortal\\BiletPortal\\BiletPortal\\wwwroot\\Logo\\registerLogo.png",
+      "PackagePath": "staticwebassets\\Logo\\registerLogo.png"
+    },
+    {
+      "Id": "D:\\BiletPortal\\BiletPortal\\BiletPortal\\wwwroot\\Logo\\theater_708732.png",
+      "PackagePath": "staticwebassets\\Logo\\theater_708732.png"
     },
     {
       "Id": "D:\\BiletPortal\\BiletPortal\\BiletPortal\\wwwroot\\Logo\\tick.png",
       "PackagePath": "staticwebassets\\Logo\\tick.png"
     },
     {
-      "Id": "D:\\BiletPortal\\BiletPortal\\BiletPortal\\wwwroot\\SliderImage\\083cdf7b-cb24-43ef-9a06-01bb37fa3a88.jpg",
-      "PackagePath": "staticwebassets\\SliderImage\\083cdf7b-cb24-43ef-9a06-01bb37fa3a88.jpg"
+      "Id": "D:\\BiletPortal\\BiletPortal\\BiletPortal\\wwwroot\\Logo\\ticket.png",
+      "PackagePath": "staticwebassets\\Logo\\ticket.png"
+    },
+    {
+      "Id": "D:\\BiletPortal\\BiletPortal\\BiletPortal\\wwwroot\\Logo\\ticketCart.png",
+      "PackagePath": "staticwebassets\\Logo\\ticketCart.png"
+    },
+    {
+      "Id": "D:\\BiletPortal\\BiletPortal\\BiletPortal\\wwwroot\\Logo\\ticket_15552065.png",
+      "PackagePath": "staticwebassets\\Logo\\ticket_15552065.png"
+    },
+    {
+      "Id": "D:\\BiletPortal\\BiletPortal\\BiletPortal\\wwwroot\\Logo\\video-camera_686458.png",
+      "PackagePath": "staticwebassets\\Logo\\video-camera_686458.png"
     },
     {
       "Id": "D:\\BiletPortal\\BiletPortal\\BiletPortal\\wwwroot\\SliderImage\\30025bbf-50d3-4ad4-9a40-d08a4a7a8831.jpg",
@@ -8145,8 +8205,28 @@
       "PackagePath": "staticwebassets\\SliderImage\\49a13198-4f66-4be2-affe-f87ee99d4c47.jpg"
     },
     {
+      "Id": "D:\\BiletPortal\\BiletPortal\\BiletPortal\\wwwroot\\SliderImage\\55f4dee7-f3f3-4afb-b9a7-6f0570805fba.jpg",
+      "PackagePath": "staticwebassets\\SliderImage\\55f4dee7-f3f3-4afb-b9a7-6f0570805fba.jpg"
+    },
+    {
+      "Id": "D:\\BiletPortal\\BiletPortal\\BiletPortal\\wwwroot\\SliderImage\\5fcfed8f-fb81-4344-9efd-9a9687b173f3.jpg",
+      "PackagePath": "staticwebassets\\SliderImage\\5fcfed8f-fb81-4344-9efd-9a9687b173f3.jpg"
+    },
+    {
+      "Id": "D:\\BiletPortal\\BiletPortal\\BiletPortal\\wwwroot\\SliderImage\\6c8c0672-99a7-44b7-b644-c5ca11f11372.jpg",
+      "PackagePath": "staticwebassets\\SliderImage\\6c8c0672-99a7-44b7-b644-c5ca11f11372.jpg"
+    },
+    {
+      "Id": "D:\\BiletPortal\\BiletPortal\\BiletPortal\\wwwroot\\SliderImage\\722529c5-3f89-4d0f-aa91-685cbafce5eb.png",
+      "PackagePath": "staticwebassets\\SliderImage\\722529c5-3f89-4d0f-aa91-685cbafce5eb.png"
+    },
+    {
       "Id": "D:\\BiletPortal\\BiletPortal\\BiletPortal\\wwwroot\\SliderImage\\805ba295-7d76-4ed9-8005-fea237f4e3d9.jpg",
       "PackagePath": "staticwebassets\\SliderImage\\805ba295-7d76-4ed9-8005-fea237f4e3d9.jpg"
+    },
+    {
+      "Id": "D:\\BiletPortal\\BiletPortal\\BiletPortal\\wwwroot\\SliderImage\\9ecc52dd-a24a-45eb-8fd4-3624b752c5bd.jpg",
+      "PackagePath": "staticwebassets\\SliderImage\\9ecc52dd-a24a-45eb-8fd4-3624b752c5bd.jpg"
     },
     {
       "Id": "D:\\BiletPortal\\BiletPortal\\BiletPortal\\wwwroot\\SliderImage\\a1938efa-1d1f-4ae8-af57-a05c82cfda5a.png",

@@ -1,6 +1,31 @@
 ﻿@model List<BiletPortal.Models.Slider>
 
-<div id="header-carousel" class="carousel slide" data-ride="carousel">
+   <html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <style>
+
+        .carousel-item {
+            width: 100vw; /* Tüm genişliği kapla */
+            height: 100vh; /* Tüm yüksekliği kapla */
+        }
+
+        .carousel-inner img {
+            object-fit: cover; /* Görsellerin düzgün boyutlanması için */
+            width: 100vw;
+            height: 100vh;
+        }
+        </style>
+
+
+    </head>
+    <body>
+
+
+
+
+
+
+<div id="header-carousel" class="carousel slide" data-ride="carousel" style="width : 100vw;">
     <div class="carousel-inner">
         @{
             int i = 0;
@@ -18,10 +43,11 @@
                 state = " ";
             }
 
-            <div class="carousel-item @state" style="height: 410px;">
-                <img class="img-fluid" src="/SliderImage/@item.SliderImage" alt="Image">
+            <div class="carousel-item @state" style="height: 600px; width : 100vw">
+                <img class="img-fluid" src="/SliderImage/@item.SliderImage" alt="Image" style="width: 100vw; height: 100vh; object-fit: cover;">
             <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                 <div class="p-3" style="max-width: 700px;">
+                  <br /><br /><br /><br /><br /><br /><br />
                     <h4 class="text-light font-weight-medium mb-3">@item.Header1</h4>
                     <h3 class="display-4 text-white font-weight-semi-bold mb-4">@item.Header2</h3>
                    @*  <a href="" class="btn btn-light py-2 px-3">@item.Context</a> *@
@@ -41,4 +67,7 @@
             <span class="carousel-control-next-icon mb-n2"></span>
         </div>
     </a>
-</div>
+    </div>
+
+</body>
+</html>
