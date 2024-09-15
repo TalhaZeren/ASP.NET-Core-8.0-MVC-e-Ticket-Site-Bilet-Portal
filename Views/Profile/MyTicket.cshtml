@@ -1,0 +1,28 @@
+﻿@model List<BiletPortal.Models.SelectSeat>
+
+
+@foreach (var item in Model)
+{
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.User.FirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.User.LastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Products.ProductName)
+        </td>
+        <td>
+            @* @Html.DisplayFor(modelItem => item.ProductPicture) *@
+            <img src="~/Urunler/@item.Products.ProductPicture" width="25" height="25" />
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Products.ProductPrice)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Products.Category.CategoryName)
+        </td>
+       
+    </tr>
+}

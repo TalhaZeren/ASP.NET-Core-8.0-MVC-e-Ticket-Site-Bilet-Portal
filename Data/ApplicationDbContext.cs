@@ -22,8 +22,7 @@ namespace BiletPortal.Data
         public  DbSet<Slider> Slider { get; set; }
         public DbSet<AppUser> AppUser { get; set; }
         public DbSet<AppRole> AppRole { get; set; }
-        public DbSet <Seat> Seat { get; set; }
         public DbSet<Payment> Payment { get; set; }
-
+        public DbSet<SelectSeat> SelectSeat { get; set; }
     }
 }

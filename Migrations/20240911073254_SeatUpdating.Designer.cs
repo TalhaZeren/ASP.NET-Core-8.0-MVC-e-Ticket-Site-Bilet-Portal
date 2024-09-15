@@ -3,6 +3,7 @@ using System;
 using BiletPortal.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace BiletPortal.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240911073254_SeatUpdating")]
+    partial class SeatUpdating
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -239,7 +242,7 @@ namespace BiletPortal.Migrations
                     b.ToTable("Products");
                 });
 
-            modelBuilder.Entity("BiletPortal.Models.SelectSeat", b =>
+            modelBuilder.Entity("BiletPortal.Models.Seat", b =>
                 {
                     b.Property<int>("SeatId")
                         .ValueGeneratedOnAdd()
@@ -250,7 +253,7 @@ namespace BiletPortal.Migrations
                     b.Property<bool>("IsBooked")
                         .HasColumnType("boolean");
 
-                    b.Property<int?>("ProductId")
+                    b.Property<int>("ProductId")
                         .HasColumnType("integer");
 
                     b.Property<int?>("ProductsProductId")
@@ -273,7 +276,7 @@ namespace BiletPortal.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("SelectSeat");
+                    b.ToTable("Seat");
                 });
 
             modelBuilder.Entity("BiletPortal.Models.Slider", b =>
@@ -418,7 +421,7 @@ namespace BiletPortal.Migrations
                     b.Navigation("Category");
                 });
 
-            modelBuilder.Entity("BiletPortal.Models.SelectSeat", b =>
+            modelBuilder.Entity("BiletPortal.Models.Seat", b =>
                 {
                     b.HasOne("BiletPortal.Models.Products", "Products")
                         .WithMany()

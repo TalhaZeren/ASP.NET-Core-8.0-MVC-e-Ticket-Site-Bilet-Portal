@@ -1,66 +1,85 @@
-﻿@model BiletPortal.Models.AppUser
+﻿@model BiletPortal.Dto.ProfileViewModel
 
-@{
-    ViewData["Title"] = "Profile";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
+
+
+<html>
+    <head>
+
+        <style>
+        .section-content {
+            display: none; /* Başlangıçta profil bölümü görünür olacak, diğer bölümler gizli */
+        }
+
+        #profileSection {
+            display: block; /* Profil bölümü başlangıçta görünecek */
+        }
+
+        .authMenu ul {
+            list-style: none;
+            padding: 0;
+        }
+
+            .authMenu ul li {
+                display: inline;
+            }
+
+                .authMenu ul li button {
+                    background-color: transparent;
+                    border: none;
+                    font-size: 16px;
+                    padding: 10px;
+                    cursor: pointer;
+                }
+
+                    .authMenu ul li button.active {
+                        font-weight: bold;
+                        color: blue;
+                    }
+
+        </style>
+
+    </head>
+    <body>
+
 
 <section class="auth">
     <div class="container">
         <div class="authWrapper">
-            @* <div class="authMenu" id="toMobile">
-
-
+            <div class="authMenu">
                 <ul>
                     <li>
-                        <a class="active" href="/tr-tr/WebLogin/MyProfile">Bilgilerim</a>
+                        <button id="profileBtn" class="active">Bilgilerim</button>
                     </li>
                     <li>
-                        <a class="" href="/tr-tr/WebLogin/MyTickets">Biletlerim</a>
+                        <button id="ticketsBtn">Biletlerim</button>
                     </li>
-                    <li>
-                        <a class="" href="/tr-tr/WebLogin/MyComments">Yorumlarım</a>
-                    </li>
-                    <li>
-                        <a class="" href="/tr-tr/MyWallet">Puanlarım</a>
-                    </li>
-                    <li>
-                        <a class="" href="/tr-tr/WebLogin/MyCoupons">Kuponlarım</a>
-                    </li>
-                    <li>
-                        <a class="" href="/tr-tr/WebLogin/MySubscriptions">Aboneliklerim</a>
-                    </li>
-                    <li>
-                        <a class="" href="/tr-tr/WebLogin/ChangePassword">Şifre Değiştir</a>
-                    </li>
-                    <li>
-                        <a class="" href="/tr-tr/WebLogin/LogOff">Çıkış</a>
-                    </li>
+                       
                 </ul>
-            </div> *@
+            </div>
+
             <div class="authContent">
 
-                <h3>Üyelik Bilgilerim</h3>
-
+             
+                <div id="profileSection" class="section-content">
                 <form asp-action="Edit" asp-controller="Profile">
                     <div class="form-group">
-                        <label asp-for="FirstName" class="control-label"></label>
-                        <input asp-for="FirstName" class="form-control" />
-                        <span asp-validation-for="FirstName" class="text-danger"></span>
+                        <label asp-for="AppUser.FirstName" class="control-label"></label>
+                                <input asp-for="AppUser.FirstName" class="form-control" />
+                                <span asp-validation-for="AppUser.FirstName" class="text-danger"></span>
                     </div>
                     <div class="form-group">
-                        <label asp-for="LastName" class="control-label"></label>
-                        <input asp-for="LastName" class="form-control" />
-                        <span asp-validation-for="LastName" class="text-danger"></span>
+                        <label asp-for="AppUser.LastName" class="control-label"></label>
+                                <input asp-for="AppUser.LastName" class="form-control" />
+                                <span asp-validation-for="AppUser.LastName" class="text-danger"></span>
                     </div>
                     <div class="form-group">
-                        <label asp-for="Email" class="control-label"></label>
-                        <input asp-for="Email" class="form-control" />
-                        <span asp-validation-for="Email" class="text-danger"></span>
+                                <label asp-for="AppUser.Email" class="control-label"></label>
+                                <input asp-for="AppUser.Email" class="form-control" />
+                                <span asp-validation-for="AppUser.Email" class="text-danger"></span>
                     </div>
                     <div class="form-group">
                         <div class="btn-group bootstrap-select input-sm">
-                            <select asp-for="City" class="form-control input-sm">
+                                    <select asp-for="AppUser.City" class="form-control input-sm">
                                 <option value="5">İstanbul Avrupa</option>
                                 <option value="77">İstanbul Anadolu</option>
                                 <option value="11">Bursa</option>
@@ -151,12 +170,67 @@
                         <input type="submit" value="Değişiklikleri Kaydet" class="btn btn-primary" />
                     </div>
                 </form>
-                <div class="loginBoxFooter ">
-
-                    <button>Üyeliğimi Sonlandır</button>
                 </div>
+                    <div id="ticketsSection" class="section-content" style="display: none;">
+                     
+
+                        <div id="ticketsSection">
+                            <h3>Biletlerim</h3>
+                            @if (Model.Tickets !=null)
+                            {
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Etkinlik</th>
+                                            <th>Fiyat</th>
+                                            <th>Kategori</th>
+                                            <th>Koltuk No</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                         @foreach (var item in Model.Tickets)
+                                        {
+                                            <tr>
+                                                <td>@item.Products.ProductName</td>
+                                                <td>@item.Products.ProductPrice</td>
+                                                <td>@item.Products.Category.CategoryName </td>
+                                                <td>@item.seatIdNumber</td>
+                                               
+                                            </tr>
+                                        } 
+                                    </tbody>
+                                </table>
+                            }
+                            else
+                            {
+                                <p>Henüz biletiniz yok.</p>
+                            }
+
+                        </div>
+                    </div>
             </div>
         </div>
     </div>
 </section>
 
+<script>
+        document.getElementById('profileBtn').addEventListener('click', function () {
+            document.getElementById('profileSection').style.display = 'block';
+            document.getElementById('ticketsSection').style.display = 'none';
+
+            this.classList.add('active');
+            document.getElementById('ticketsBtn').classList.remove('active');
+        });
+
+        document.getElementById('ticketsBtn').addEventListener('click', function () {
+            document.getElementById('profileSection').style.display = 'none';
+            document.getElementById('ticketsSection').style.display = 'block';
+
+            this.classList.add('active');
+            document.getElementById('profileBtn').classList.remove('active');
+        });
+
+</script>
+
+</body>
+</html>

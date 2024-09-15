@@ -1,66 +1,76 @@
-﻿using BiletPortal.Component;
-using BiletPortal.Data;
-using BiletPortal.Dto;
+﻿using BiletPortal.Data;
 using BiletPortal.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
-namespace BiletPortal.Controllers
+public class SelectSeatController : Controller
 {
-    public class SelectSeatController : Controller
+    private readonly ApplicationDbContext _context;
+    private readonly SignInManager<AppUser> _signInManager;
+
+    public SelectSeatController(ApplicationDbContext context, SignInManager<AppUser> signInManager)
     {
+        _context = context;
+        _signInManager = signInManager;
+    }
 
-        private readonly ApplicationDbContext _context;
-        private readonly SignInManager<AppUser> _signInManager;
-     
-
-        public SelectSeatController(ApplicationDbContext context, SignInManager<AppUser> signInManager)
+    public IActionResult Index(int productId)
+    {
+        if (_signInManager.IsSignedIn(User))
         {
-          
-            _context = context; 
-            _signInManager = signInManager;
-        }
-
-        [HttpGet]
-        public IActionResult Index()
-        {
-            if (_signInManager.IsSignedIn(User))
+            var product = _context.Products.FirstOrDefault(p => p.ProductId == productId);
+            if (product == null)
             {
-                return View();
+                return NotFound("Ürün bulunamadı.");
             }
-            return RedirectToAction("Index", "Login");
-        }
-     
-        [HttpPost]
-        public async Task<IActionResult> SaveSeats(string seatIds)
-        {
-          
-            if (seatIds != null && seatIds.Length > 0 )
+
+            var model = new SelectSeat
             {
-                
-                    var item = await _context.Seat.FirstOrDefaultAsync(s => s.seatIdNumber == seatIds);
-                    if (item != null) 
-                    {
-                        return Json(new { full = true });
-                    }
+                ProductId = productId,
+                Products = product
+            };
 
-                    var newSeat = new Seat
-                    {
-                        seatIdNumber = seatIds,
-                        SeatNumber = "Belirli bir numara", // Bu değeri dinamik olarak belirlemek daha iyi olabilir.
-                        IsBooked = true
-                    };
+            return View(model);
+        }
 
-                    _context.Seat.Add(newSeat);
-                
+        return RedirectToAction("Index", "Login");
+    }
 
+    [HttpPost]
+    public async Task<IActionResult> SaveSeats(string seatId, int productId)
+    {
+        Random random = new Random();
+        if (_signInManager.IsSignedIn(User))
+        {
+           
+            var user = await _signInManager.UserManager.GetUserAsync(User); // Kullanıcı bilgilerini al
+
+
+            if (!string.IsNullOrEmpty(seatId) && productId > 0)
+            {
+                var seat = await _context.SelectSeat.FirstOrDefaultAsync(s => s.seatIdNumber == seatId && s.ProductId == productId);
+                if (seat != null)
+                {
+                    return Json(new { success = false, message = "Koltuk zaten dolu!" });
+                }
+
+                var newSeat = new SelectSeat
+                {
+                    seatIdNumber = seatId,
+                    ProductId = productId,
+                    SeatNumber = "SeatNumber",
+                    IsBooked = true,
+                    UserId = user.Id// Kullanıcıyla ilişkilendir
+                };
+
+                _context.SelectSeat.Add(newSeat);
                 await _context.SaveChangesAsync();
 
                 return Json(new { success = true });
             }
-            return Json(new { success = false, message = "Seçili değer bulunmamaktadır" });
-
         }
+
+        return Json(new { success = false, message = "Geçersiz koltuk veya ürün bilgisi." });
     }
 }

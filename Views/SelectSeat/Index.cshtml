@@ -1,4 +1,4 @@
-﻿@model BiletPortal.Models.Products
+﻿@model BiletPortal.Models.SelectSeat
 
 
 <!DOCTYPE html>
@@ -112,448 +112,444 @@
 </head>
 
 <body>
-    <section class="koltukSecimi " style="display: block">
+   
+      @if (Model != null && Model.ProductId > 0)
+    {
+        <section class="koltukSecimi " style="display: block">
 
-        <div class="seatLocation">
+            <div class="seatLocation">
 
-            <div class="Koltuklar " style="height: 371px;">
-                <input name="__RequestVerificationToken" type="hidden" value="99Yo9WMm9vQeAlUXc4rLyAfRkJQRs6ydy5UILc1N6jroYQDMAjYURpXe-Clm27TAGva6wrlU0SzHay1CFXb7oWBj6Qs1">
-
-
-
-                <div class="koltuk_sira">
+                <div class="Koltuklar " style="height: 371px;">
+                    <input name="__RequestVerificationToken" type="hidden" value="99Yo9WMm9vQeAlUXc4rLyAfRkJQRs6ydy5UILc1N6jroYQDMAjYURpXe-Clm27TAGva6wrlU0SzHay1CFXb7oWBj6Qs1">
 
 
-                    <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13378" data-place="I1">
-                        <i class='fas fa-couch' style='font-size:36px'></i>
-                    </span>
-                    <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13380" data-place="I2">
-                        <i class='fas fa-couch' style='font-size:36px'></i>
-                    </span>
-                    <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13382" data-place="I3">
-                        <i class='fas fa-couch' style='font-size:36px'></i>
-                    </span>
-                    <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid=" 13384" data-place="I4">
-                        <i class='fas fa-couch' style='font-size:36px'></i>
-                    </span>
-                    <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid=" 13386" data-place="I5">
-                        <i class='fas fa-couch' style='font-size:36px'></i>
-                    </span>
-                    <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this); " data-place="I6">
-                        <i class='fas fa-couch' style='font-size:36px'></i>
-                    </span>
-                    <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-place="I7">
-                        <i class='fas fa-couch' style='font-size:36px'></i>
 
-                    </span>
-                    <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13392" data-place="I8">
-                        <i class='fas fa-couch' style='font-size:36px'></i>
-                    </span>
-                    <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13394" data-place="I9">
-                        <i class='fas fa-couch' style='font-size:36px'></i>
-                    </span>
-                    <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13396" data-place="I10">
-                        <i class='fas fa-couch' style='font-size:36px'></i>
-                    </span>
-                    <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13389" data-place="I11">
-                        <i class='fas fa-couch' style='font-size:36px'></i>
-                    </span>
+                    <div class="koltuk_sira">
 
+
+                        <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13378" data-place="I1">
+                            <i class='fas fa-couch' style='font-size:36px'></i>
+                        </span>
+                        <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13380" data-place="I2">
+                            <i class='fas fa-couch' style='font-size:36px'></i>
+                        </span>
+                        <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13382" data-place="I3">
+                            <i class='fas fa-couch' style='font-size:36px'></i>
+                        </span>
+                        <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid=" 13384" data-place="I4">
+                            <i class='fas fa-couch' style='font-size:36px'></i>
+                        </span>
+                        <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid=" 13386" data-place="I5">
+                            <i class='fas fa-couch' style='font-size:36px'></i>
+                        </span>
+                        <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this); " data-place="I6">
+                            <i class='fas fa-couch' style='font-size:36px'></i>
+                        </span>
+                        <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-place="I7">
+                            <i class='fas fa-couch' style='font-size:36px'></i>
+
+                        </span>
+                        <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13392" data-place="I8">
+                            <i class='fas fa-couch' style='font-size:36px'></i>
+                        </span>
+                        <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13394" data-place="I9">
+                            <i class='fas fa-couch' style='font-size:36px'></i>
+                        </span>
+                        <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13396" data-place="I10">
+                            <i class='fas fa-couch' style='font-size:36px'></i>
+                        </span>
+                        <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13389" data-place="I11">
+                            <i class='fas fa-couch' style='font-size:36px'></i>
+                        </span>
+
+                    </div>
+                    <div class="koltuk_sira">
+
+
+                        <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13365" data-place="H1">
+                            <i class='fas fa-couch' style='font-size:36px'></i>
+                        </span>
+                        <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13367" data-place="H2">
+                            <i class='fas fa-couch' style='font-size:36px'></i>
+                        </span>
+                        <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13368" data-place="H3">
+                            <i class='fas fa-couch' style='font-size:36px'></i>
+                        </span>
+                        <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13370" data-place="H4">
+                            <i class='fas fa-couch' style='font-size:36px'></i>
+                        </span>
+                        <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13371" data-place="H5">
+                            <i class='fas fa-couch' style='font-size:36px'></i>
+                        </span>
+                        <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13373" data-place="H6">
+                            <i class='fas fa-couch' style='font-size:36px'></i>
+                        </span>
+                        <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13374" data-place="H7">
+                            <i class='fas fa-couch' style='font-size:36px'></i>
+                        </span>
+                        <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13376" data-place="H8">
+                            <i class='fas fa-couch' style='font-size:36px'></i>
+                        </span>
+                        <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13362" data-place="H9">
+                            <i class='fas fa-couch' style='font-size:36px'></i>
+                        </span>
+                        <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13363" data-place="H10">
+                            <i class='fas fa-couch' style='font-size:36px'></i>
+                        </span>
+                        <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13364" data-place="H11">
+                            <i class='fas fa-couch' style='font-size:36px'></i>
+                        </span>
+
+
+                    </div>
+                    <div class="koltuk_sira">
+
+
+                        <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13343" data-place="G1">
+                            <i class='fas fa-couch' style='font-size:36px'></i>
+                        </span>
+                        <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13346" data-place="G2">
+                            <i class='fas fa-couch' style='font-size:36px'></i>
+                        </span>
+                        <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13348" data-place="G3">
+                            <i class='fas fa-couch' style='font-size:36px'></i>
+                        </span>
+                        <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13349" data-place="G4">
+                            <i class='fas fa-couch' style='font-size:36px'></i>
+                        </span>
+                        <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13351" data-place="G5">
+                            <i class='fas fa-couch' style='font-size:36px'></i>
+                        </span>
+                        <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13352" data-place="G6">
+                            <i class='fas fa-couch' style='font-size:36px'></i>
+                        </span>
+                        <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13354" data-place="G7">
+                            <i class='fas fa-couch' style='font-size:36px'></i>
+                        </span>
+                        <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13356" data-place="G8">
+                            <i class='fas fa-couch' style='font-size:36px'></i>
+                        </span>
+                        <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13357" data-place="G9">
+                            <i class='fas fa-couch' style='font-size:36px'></i>
+                        </span>
+                        <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13358" data-place="G10">
+                            <i class='fas fa-couch' style='font-size:36px'></i>
+                        </span>
+                        <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13359" data-place="G11">
+                            <i class='fas fa-couch' style='font-size:36px'></i>
+                        </span>
+
+
+
+                    </div>
+                    <div class="koltuk_sira">
+
+                        <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13316" data-place="F1">
+                            <i class='fas fa-couch' style='font-size:36px'></i>
+                        </span>
+                        <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13318" data-place="F2">
+                            <i class='fas fa-couch' style='font-size:36px'></i>
+                        </span>
+                        <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13319" data-place="F3">
+                            <i class='fas fa-couch' style='font-size:36px'></i>
+                        </span>
+                        <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13320" data-place="F4">
+                            <i class='fas fa-couch' style='font-size:36px'></i>
+                        </span>
+                        <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13322" data-place="F5">
+                            <i class='fas fa-couch' style='font-size:36px'></i>
+                        </span>
+                        <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13323" data-place="F6">
+                            <i class='fas fa-couch' style='font-size:36px'></i>
+                        </span>
+                        <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13325" data-place="F7">
+                            <i class='fas fa-couch' style='font-size:36px'></i>
+                        </span>
+                        <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13327" data-place="F8">
+                            <i class='fas fa-couch' style='font-size:36px'></i>
+                        </span>
+                        <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13329" data-place="F9">
+                            <i class='fas fa-couch' style='font-size:36px'></i>
+                        </span>
+                        <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13331" data-place="F10">
+                            <i class='fas fa-couch' style='font-size:36px'></i>
+                        </span>
+                        <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13333" data-place="F11">
+                            <i class='fas fa-couch' style='font-size:36px'></i>
+                        </span>
+                    </div>
+                    <div class="koltuk_sira">
+
+                        <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13295" data-place="E1">
+                            <i class='fas fa-couch' style='font-size:36px'></i>
+                        </span>
+                        <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13297" data-place="E2">
+                            <i class='fas fa-couch' style='font-size:36px'></i>
+                        </span>
+                        <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13299" data-place="E3">
+                            <i class='fas fa-couch' style='font-size:36px'></i>
+                        </span>
+                        <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13300" data-place="E4">
+                            <i class='fas fa-couch' style='font-size:36px'></i>
+                        </span>
+                        <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13302" data-place="E5">
+                            <i class='fas fa-couch' style='font-size:36px'></i>
+                        </span>
+                        <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13304" data-place="E6">
+                            <i class='fas fa-couch' style='font-size:36px'></i>
+                        </span>
+                        <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13306" data-place="E7">
+                            <i class='fas fa-couch' style='font-size:36px'></i>
+                        </span>
+                        <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13308" data-place="E8">
+                            <i class='fas fa-couch' style='font-size:36px'></i>
+                        </span>
+                        <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13310" data-place="E9">
+                            <i class='fas fa-couch' style='font-size:36px'></i>
+                        </span>
+                        <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13312" data-place="E10">
+                            <i class='fas fa-couch' style='font-size:36px'></i>
+                        </span>
+                        <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13313" data-place="E11">
+                            <i class='fas fa-couch' style='font-size:36px'></i>
+                        </span>
+                    </div>
+                    <div class="koltuk_sira">
+
+                        <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13277" data-place="D1">
+                            <i class='fas fa-couch' style='font-size:36px'></i>
+                        </span>
+                        <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13278" data-place="D2">
+                            <i class='fas fa-couch' style='font-size:36px'></i>
+                        </span>
+                        <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13279" data-place="D3">
+                            <i class='fas fa-couch' style='font-size:36px'></i>
+                        </span>
+                        <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13280" data-place="D4">
+                            <i class='fas fa-couch' style='font-size:36px'></i>
+                        </span>
+                        <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13281" data-place="D5">
+                            <i class='fas fa-couch' style='font-size:36px'></i>
+                        </span>
+                        <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13282" data-place="D6">
+                            <i class='fas fa-couch' style='font-size:36px'></i>
+                        </span>
+                        <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13283" data-place="D7">
+                            <i class='fas fa-couch' style='font-size:36px'></i>
+                        </span>
+                        <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13284" data-place="D8">
+                            <i class='fas fa-couch' style='font-size:36px'></i>
+                        </span>
+                        <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13285" data-place="D9">
+                            <i class='fas fa-couch' style='font-size:36px'></i>
+                        </span>
+                        <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13286" data-place="D10">
+                            <i class='fas fa-couch' style='font-size:36px'></i>
+                        </span>
+                        <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13287" data-place="D11">
+                            <i class='fas fa-couch' style='font-size:36px'></i>
+                        </span>
+                    </div>
+                    <div class="koltuk_sira">
+
+                        <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13266" data-place="C1">
+                            <i class='fas fa-couch' style='font-size:36px'></i>
+                        </span>
+                        <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13267" data-place="C2">
+                            <i class='fas fa-couch' style='font-size:36px'></i>
+                        </span>
+                        <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13268" data-place="C3">
+                            <i class='fas fa-couch' style='font-size:36px'></i>
+                        </span>
+                        <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13269" data-place="C4">
+                            <i class='fas fa-couch' style='font-size:36px'></i>
+                        </span>
+                        <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13270" data-place="C5">
+                            <i class='fas fa-couch' style='font-size:36px'></i>
+                        </span>
+                        <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13271" data-place="C6">
+                            <i class='fas fa-couch' style='font-size:36px'></i>
+                        </span>
+                        <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13272" data-place="C7">
+                            <i class='fas fa-couch' style='font-size:36px'></i>
+                        </span>
+                        <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13273" data-place="C8">
+                            <i class='fas fa-couch' style='font-size:36px'></i>
+                        </span>
+                        <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13274" data-place="C9">
+                            <i class='fas fa-couch' style='font-size:36px'></i>
+                        </span>
+                        <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13275" data-place="C10">
+                            <i class='fas fa-couch' style='font-size:36px'></i>
+                        </span>
+                        <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13276" data-place="C11">
+                            <i class='fas fa-couch' style='font-size:36px'></i>
+                        </span>
+                    </div>
+                    <div class="koltuk_sira">
+
+                        <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13255" data-place="B1">
+                            <i class='fas fa-couch' style='font-size:36px'></i>
+                        </span>
+                        <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13256" data-place="B2">
+                            <i class='fas fa-couch' style='font-size:36px'></i>
+                        </span>
+                        <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13257" data-place="B3">
+                            <i class='fas fa-couch' style='font-size:36px'></i>
+                        </span>
+                        <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13258" data-place="B4">
+                            <i class='fas fa-couch' style='font-size:36px'></i>
+                        </span>
+                        <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13259" data-place="B5">
+                            <i class='fas fa-couch' style='font-size:36px'></i>
+                        </span>
+                        <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13260" data-place="B6">
+                            <i class='fas fa-couch' style='font-size:36px'></i>
+                        </span>
+                        <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13261" data-place="B7">
+                            <i class='fas fa-couch' style='font-size:36px'></i>
+                        </span>
+                        <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13262" data-place="B8">
+                            <i class='fas fa-couch' style='font-size:36px'></i>
+                        </span>
+                        <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13263" data-place="B9">
+                            <i class='fas fa-couch' style='font-size:36px'></i>
+                        </span>
+                        <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13264" data-place="B10">
+                            <i class='fas fa-couch' style='font-size:36px'></i>
+                        </span>
+                        <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13265" data-place="B11">
+                            <i class='fas fa-couch' style='font-size:36px'></i>
+                        </span>
+                    </div>
+                    <div class="koltuk_sira">
+
+                        <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13236" data-place="A1">
+                            <i class='fas fa-couch' style='font-size:36px'></i>
+                        </span>
+                        <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13238" data-place="A2">
+                            <i class='fas fa-couch' style='font-size:36px'></i>
+                        </span>
+                        <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13240" data-place="A3">
+                            <i class='fas fa-couch' style='font-size:36px'></i>
+                        </span>
+                        <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13242" data-place="A4">
+                            <i class='fas fa-couch' style='font-size:36px'></i>
+                        </span>
+                        <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13243" data-place="A5">
+                            <i class='fas fa-couch' style='font-size:36px'></i>
+                        </span>
+                        <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13246" data-place="A6">
+                            <i class='fas fa-couch' style='font-size:36px'></i>
+                        </span>
+                        <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13248" data-place="A7">
+                            <i class='fas fa-couch' style='font-size:36px'></i>
+                        </span>
+                        <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13249" data-place="A8">
+                            <i class='fas fa-couch' style='font-size:36px'></i>
+                        </span>
+                        <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13251" data-place="A9">
+                            <i class='fas fa-couch' style='font-size:36px'></i>
+                        </span>
+                        <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13253" data-place="A10">
+                            <i class='fas fa-couch' style='font-size:36px'></i>
+                        </span>
+                        <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13254" data-place="A11">
+                            <i class='fas fa-couch' style='font-size:36px'></i>
+                        </span>
+                    </div>
                 </div>
-                <div class="koltuk_sira">
 
 
-                    <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13365" data-place="H1">
-                        <i class='fas fa-couch' style='font-size:36px'></i>
-                    </span>
-                    <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13367" data-place="H2">
-                        <i class='fas fa-couch' style='font-size:36px'></i>
-                    </span>
-                    <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13368" data-place="H3">
-                        <i class='fas fa-couch' style='font-size:36px'></i>
-                    </span>
-                    <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13370" data-place="H4">
-                        <i class='fas fa-couch' style='font-size:36px'></i>
-                    </span>
-                    <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13371" data-place="H5">
-                        <i class='fas fa-couch' style='font-size:36px'></i>
-                    </span>
-                    <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13373" data-place="H6">
-                        <i class='fas fa-couch' style='font-size:36px'></i>
-                    </span>
-                    <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13374" data-place="H7">
-                        <i class='fas fa-couch' style='font-size:36px'></i>
-                    </span>
-                    <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13376" data-place="H8">
-                        <i class='fas fa-couch' style='font-size:36px'></i>
-                    </span>
-                    <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13362" data-place="H9">
-                        <i class='fas fa-couch' style='font-size:36px'></i>
-                    </span>
-                    <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13363" data-place="H10">
-                        <i class='fas fa-couch' style='font-size:36px'></i>
-                    </span>
-                    <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13364" data-place="H11">
-                        <i class='fas fa-couch' style='font-size:36px'></i>
-                    </span>
+
+                <button id="continueButton" class="modal-button" style="display:none" onclick="confirmSelection()">Koltuğu Al</button>
 
 
+                <div id="successModal" class="modal" style="display: none;">
+                    <div class="modal-content">
+                        <button id="redirectButton">Diğer sayfaya git</button>
+                    </div>
                 </div>
-                <div class="koltuk_sira">
 
-
-                    <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13343" data-place="G1">
-                        <i class='fas fa-couch' style='font-size:36px'></i>
-                    </span>
-                    <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13346" data-place="G2">
-                        <i class='fas fa-couch' style='font-size:36px'></i>
-                    </span>
-                    <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13348" data-place="G3">
-                        <i class='fas fa-couch' style='font-size:36px'></i>
-                    </span>
-                    <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13349" data-place="G4">
-                        <i class='fas fa-couch' style='font-size:36px'></i>
-                    </span>
-                    <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13351" data-place="G5">
-                        <i class='fas fa-couch' style='font-size:36px'></i>
-                    </span>
-                    <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13352" data-place="G6">
-                        <i class='fas fa-couch' style='font-size:36px'></i>
-                    </span>
-                    <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13354" data-place="G7">
-                        <i class='fas fa-couch' style='font-size:36px'></i>
-                    </span>
-                    <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13356" data-place="G8">
-                        <i class='fas fa-couch' style='font-size:36px'></i>
-                    </span>
-                    <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13357" data-place="G9">
-                        <i class='fas fa-couch' style='font-size:36px'></i>
-                    </span>
-                    <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13358" data-place="G10">
-                        <i class='fas fa-couch' style='font-size:36px'></i>
-                    </span>
-                    <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13359" data-place="G11">
-                        <i class='fas fa-couch' style='font-size:36px'></i>
-                    </span>
-
-
-
-                </div>
-                <div class="koltuk_sira">
-
-                    <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13316" data-place="F1">
-                        <i class='fas fa-couch' style='font-size:36px'></i>
-                    </span>
-                    <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13318" data-place="F2">
-                        <i class='fas fa-couch' style='font-size:36px'></i>
-                    </span>
-                    <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13319" data-place="F3">
-                        <i class='fas fa-couch' style='font-size:36px'></i>
-                    </span>
-                    <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13320" data-place="F4">
-                        <i class='fas fa-couch' style='font-size:36px'></i>
-                    </span>
-                    <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13322" data-place="F5">
-                        <i class='fas fa-couch' style='font-size:36px'></i>
-                    </span>
-                    <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13323" data-place="F6">
-                        <i class='fas fa-couch' style='font-size:36px'></i>
-                    </span>
-                    <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13325" data-place="F7">
-                        <i class='fas fa-couch' style='font-size:36px'></i>
-                    </span>
-                    <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13327" data-place="F8">
-                        <i class='fas fa-couch' style='font-size:36px'></i>
-                    </span>
-                    <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13329" data-place="F9">
-                        <i class='fas fa-couch' style='font-size:36px'></i>
-                    </span>
-                    <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13331" data-place="F10">
-                        <i class='fas fa-couch' style='font-size:36px'></i>
-                    </span>
-                    <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13333" data-place="F11">
-                        <i class='fas fa-couch' style='font-size:36px'></i>
-                    </span>
-                </div>
-                <div class="koltuk_sira">
-
-                    <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13295" data-place="E1">
-                        <i class='fas fa-couch' style='font-size:36px'></i>
-                    </span>
-                    <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13297" data-place="E2">
-                        <i class='fas fa-couch' style='font-size:36px'></i>
-                    </span>
-                    <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13299" data-place="E3">
-                        <i class='fas fa-couch' style='font-size:36px'></i>
-                    </span>
-                    <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13300" data-place="E4">
-                        <i class='fas fa-couch' style='font-size:36px'></i>
-                    </span>
-                    <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13302" data-place="E5">
-                        <i class='fas fa-couch' style='font-size:36px'></i>
-                    </span>
-                    <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13304" data-place="E6">
-                        <i class='fas fa-couch' style='font-size:36px'></i>
-                    </span>
-                    <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13306" data-place="E7">
-                        <i class='fas fa-couch' style='font-size:36px'></i>
-                    </span>
-                    <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13308" data-place="E8">
-                        <i class='fas fa-couch' style='font-size:36px'></i>
-                    </span>
-                    <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13310" data-place="E9">
-                        <i class='fas fa-couch' style='font-size:36px'></i>
-                    </span>
-                    <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13312" data-place="E10">
-                        <i class='fas fa-couch' style='font-size:36px'></i>
-                    </span>
-                    <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13313" data-place="E11">
-                        <i class='fas fa-couch' style='font-size:36px'></i>
-                    </span>
-                </div>
-                <div class="koltuk_sira">
-
-                    <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13277" data-place="D1">
-                        <i class='fas fa-couch' style='font-size:36px'></i>
-                    </span>
-                    <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13278" data-place="D2">
-                        <i class='fas fa-couch' style='font-size:36px'></i>
-                    </span>
-                    <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13279" data-place="D3">
-                        <i class='fas fa-couch' style='font-size:36px'></i>
-                    </span>
-                    <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13280" data-place="D4">
-                        <i class='fas fa-couch' style='font-size:36px'></i>
-                    </span>
-                    <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13281" data-place="D5">
-                        <i class='fas fa-couch' style='font-size:36px'></i>
-                    </span>
-                    <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13282" data-place="D6">
-                        <i class='fas fa-couch' style='font-size:36px'></i>
-                    </span>
-                    <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13283" data-place="D7">
-                        <i class='fas fa-couch' style='font-size:36px'></i>
-                    </span>
-                    <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13284" data-place="D8">
-                        <i class='fas fa-couch' style='font-size:36px'></i>
-                    </span>
-                    <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13285" data-place="D9">
-                        <i class='fas fa-couch' style='font-size:36px'></i>
-                    </span>
-                    <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13286" data-place="D10">
-                        <i class='fas fa-couch' style='font-size:36px'></i>
-                    </span>
-                    <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13287" data-place="D11">
-                        <i class='fas fa-couch' style='font-size:36px'></i>
-                    </span>
-                </div>
-                <div class="koltuk_sira">
-
-                    <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13266" data-place="C1">
-                        <i class='fas fa-couch' style='font-size:36px'></i>
-                    </span>
-                    <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13267" data-place="C2">
-                        <i class='fas fa-couch' style='font-size:36px'></i>
-                    </span>
-                    <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13268" data-place="C3">
-                        <i class='fas fa-couch' style='font-size:36px'></i>
-                    </span>
-                    <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13269" data-place="C4">
-                        <i class='fas fa-couch' style='font-size:36px'></i>
-                    </span>
-                    <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13270" data-place="C5">
-                        <i class='fas fa-couch' style='font-size:36px'></i>
-                    </span>
-                    <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13271" data-place="C6">
-                        <i class='fas fa-couch' style='font-size:36px'></i>
-                    </span>
-                    <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13272" data-place="C7">
-                        <i class='fas fa-couch' style='font-size:36px'></i>
-                    </span>
-                    <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13273" data-place="C8">
-                        <i class='fas fa-couch' style='font-size:36px'></i>
-                    </span>
-                    <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13274" data-place="C9">
-                        <i class='fas fa-couch' style='font-size:36px'></i>
-                    </span>
-                    <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13275" data-place="C10">
-                        <i class='fas fa-couch' style='font-size:36px'></i>
-                    </span>
-                    <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13276" data-place="C11">
-                        <i class='fas fa-couch' style='font-size:36px'></i>
-                    </span>
-                </div>
-                <div class="koltuk_sira">
-
-                    <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13255" data-place="B1">
-                        <i class='fas fa-couch' style='font-size:36px'></i>
-                    </span>
-                    <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13256" data-place="B2">
-                        <i class='fas fa-couch' style='font-size:36px'></i>
-                    </span>
-                    <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13257" data-place="B3">
-                        <i class='fas fa-couch' style='font-size:36px'></i>
-                    </span>
-                    <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13258" data-place="B4">
-                        <i class='fas fa-couch' style='font-size:36px'></i>
-                    </span>
-                    <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13259" data-place="B5">
-                        <i class='fas fa-couch' style='font-size:36px'></i>
-                    </span>
-                    <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13260" data-place="B6">
-                        <i class='fas fa-couch' style='font-size:36px'></i>
-                    </span>
-                    <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13261" data-place="B7">
-                        <i class='fas fa-couch' style='font-size:36px'></i>
-                    </span>
-                    <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13262" data-place="B8">
-                        <i class='fas fa-couch' style='font-size:36px'></i>
-                    </span>
-                    <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13263" data-place="B9">
-                        <i class='fas fa-couch' style='font-size:36px'></i>
-                    </span>
-                    <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13264" data-place="B10">
-                        <i class='fas fa-couch' style='font-size:36px'></i>
-                    </span>
-                    <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13265" data-place="B11">
-                        <i class='fas fa-couch' style='font-size:36px'></i>
-                    </span>
-                </div>
-                <div class="koltuk_sira">
-
-                    <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13236" data-place="A1">
-                        <i class='fas fa-couch' style='font-size:36px'></i>
-                    </span>
-                    <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13238" data-place="A2">
-                        <i class='fas fa-couch' style='font-size:36px'></i>
-                    </span>
-                    <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13240" data-place="A3">
-                        <i class='fas fa-couch' style='font-size:36px'></i>
-                    </span>
-                    <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13242" data-place="A4">
-                        <i class='fas fa-couch' style='font-size:36px'></i>
-                    </span>
-                    <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13243" data-place="A5">
-                        <i class='fas fa-couch' style='font-size:36px'></i>
-                    </span>
-                    <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13246" data-place="A6">
-                        <i class='fas fa-couch' style='font-size:36px'></i>
-                    </span>
-                    <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13248" data-place="A7">
-                        <i class='fas fa-couch' style='font-size:36px'></i>
-                    </span>
-                    <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13249" data-place="A8">
-                        <i class='fas fa-couch' style='font-size:36px'></i>
-                    </span>
-                    <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13251" data-place="A9">
-                        <i class='fas fa-couch' style='font-size:36px'></i>
-                    </span>
-                    <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13253" data-place="A10">
-                        <i class='fas fa-couch' style='font-size:36px'></i>
-                    </span>
-                    <span class="selectSeat" style="background-color: #ffffff;" onclick="selectSeat(this);" data-seatid="13254" data-place="A11">
-                        <i class='fas fa-couch' style='font-size:36px'></i>
-                    </span>
-                </div>
             </div>
-
-
-
-            <button id="continueButton" class="modal-button" style="display:none" onclick="confirmSelection()">Koltuğu Al</button>
-
-
-            <div id="successModal" class="modal" style="display: none;">
-                <div class="modal-content">
-                    <button id="redirectButton">Diğer sayfaya git</button>
-                </div>
+            <div class="stage">
+                PERDE
             </div>
+       
 
-        </div>
-        <div class="stage">
-            PERDE
-        </div>
-
-        <script>
-
-            function selectSeat(seat) {
-                if (!seat.classList.contains('closed-seat')) {
-                    seat.classList.toggle('selected');
-                    updateContinueButton();
-                }
-            }
-
-            function updateContinueButton() {
-                var continueButton = document.getElementById("continueButton");
-                var selectedSeats = document.querySelectorAll('.selectSeat.selected');
-                continueButton.style.display = selectedSeats.length > 0 ? "block" : "none";
-            }
-
-            function confirmSelection() {
-                var selectedSeats = document.querySelectorAll('.selectSeat.selected');
-                selectedSeats.forEach(function (seat) {
-                    seat.classList.remove('selected');
-                    seat.classList.add('closed-seat');
-                    seat.style.backgroundColor = '#cccccc'; // Kilitlenmiş koltuk rengi
-                    seat.style.cursor = 'not-allowed';
-                });
-                saveToDatabase(selectedSeats);
-            }
-
-            function saveToDatabase(selectedSeats) {
-                var selectedIds = [];
-                selectedSeats.forEach(function (seat) {
-                    selectedIds.push(seat.getAttribute('data-seatid')); // String olarak id'leri toplar
-                });
-                console.log(selectedIds);
-                let requestData = JSON.stringify({ seatIds: selectedIds });
-                console.log(requestData);
-
-                $.ajax({
-                    url: '/SelectSeat/SaveSeats',
-                    type: 'POST',
-                    data: { seatIds: selectedIds },
-                    dataType: "json",            // This row was defined as 'json' instead of 'application/json'
-                    traditional: true,
-                    success: function (response) {
-                        if (response.success == true) {
-                            alert('Koltuk başarıyla alındı!');
-
-                            document.getElementById('successModal').style.display = 'block';
-
-                            // Buton tıklama olayı için listener ekleyin
-                            document.getElementById('redirectButton').addEventListener('click', function () {
-
-                                window.location.href = '/Card/Index'; // Yönlendirilmek istenen sayfa URL'si
-
-                            });
-                        }
-
-                    },
-                    full: function (response) {
-                        if (response.success == true) {
-                            alert('Koltuk Zaten Dolu!');
-                        }
-
-                    },
-                    error: function (error) {
-                        console.error('Error', error);
-                    }
-                });
-            }
-        </script>
-    </section>
-    <!-- jQuery CDN -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" />
-    <!-- Owl Carousel JS -->
-    <script src="~/Home/lib/owlcarousel/owl.carousel.min.js"></script>
-    <script src="~/Home/js/main.js"></script>
 
     <script>
-        jQuery(document).ready(function () {
+                var selectedSeat = null; // Tek koltuk seçimi için global değişken
+
+                function selectSeat(seat) {
+                    if (!seat.classList.contains('closed-seat')) {
+                        if (selectedSeat) {
+                            selectedSeat.classList.remove('selected'); // Önceki seçilen koltuğu kaldır
+                        }
+                        selectedSeat = seat; // Yeni koltuğu seç
+                        seat.classList.toggle('selected');
+                        updateContinueButton();
+                    }
+                }
+
+                function updateContinueButton() {
+                    var continueButton = document.getElementById("continueButton");
+                    continueButton.style.display = selectedSeat ? "block" : "none";
+                }
+
+                function confirmSelection() {
+                    var seatId = selectedSeat.getAttribute("data-seatid");
+                    var productId = "@Model.ProductId";
+
+                    saveToDatabase(seatId, productId);
+                }
+
+                function saveToDatabase(seatId, productId) {
+                    $.ajax({
+                        url: '/SelectSeat/SaveSeats',
+                        type: 'POST',
+                        data: { seatId: seatId, productId: productId },
+                        dataType: "json",
+                        success: function (response) {
+                            if (response.success) {
+                                alert('Koltuk başarıyla alındı!');
+
+                                // Seçilen koltuğu kitli hale getir
+                                selectedSeat.classList.add('closed-seat');
+                                selectedSeat.classList.remove('selected'); // Seçim durumu kaldır
+                                selectedSeat.style.backgroundColor = 'yellow'; // Kitlenen koltuğun rengini değiştir
+
+                                selectedSeat = null; // Seçimi sıfırla
+                                updateContinueButton(); // Butonu gizle
+
+                                document.getElementById('successModal').style.display = 'block';
+                                document.getElementById('redirectButton').addEventListener('click', function () {
+                                    window.location.href = '/Card/Index'; // Yönlendirilmek istenen sayfa
+                                });
+                            } else {
+                                alert(response.message);
+                            }
+                        },
+                        error: function (error) {
+                            console.error('Hata:', error);
+                        }
+                    });
+                }
+
+    </script>
+
+    <!-- jQuery CDN -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" />
+        <!-- Owl Carousel JS -->
+        <script src="~/Home/lib/owlcarousel/owl.carousel.min.js"></script>
+        <script src="~/Home/js/main.js"></script>
+
+        <script>
+            jQuery(document).ready(function () {
             jQuery(".owl-carousel").owlCarousel({
                 items: 1, // Görüntülenecek öğe sayısı
                 loop: true, // Döngü özelliği
@@ -563,25 +559,11 @@
         });
 
     </script>
-
-
-
+        </section>
+    }
+    else
+    {
+        <p>Ürün bilgileri eksik veya hatalı.</p>
+    }
 </body>
 </html>
-
-<!--
-
-<div id="succesModal"class="modal" style="display : none;">
-                    <div class="model-content">
-                        <p> Koltuk Başarıyla alındı</p>
-                        <button id="redirectButton">Devam Et</button>
-
-
-                    </div>
-                </div>
-
-
-
-
-
-<span class="koltuk_tek closed-seat" style="background-color: #cccccc; " onclick="KapaliUyari();" data-place="I6">I6</span>-->

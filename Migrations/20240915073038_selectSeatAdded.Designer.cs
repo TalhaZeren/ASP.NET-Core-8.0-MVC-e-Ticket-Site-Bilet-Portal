@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace BiletPortal.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240827081456_seat")]
-    partial class seat
+    [Migration("20240915073038_selectSeatAdded")]
+    partial class selectSeatAdded
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -152,6 +152,57 @@ namespace BiletPortal.Migrations
                     b.ToTable("Category");
                 });
 
+            modelBuilder.Entity("BiletPortal.Models.Payment", b =>
+                {
+                    b.Property<int>("PaymentId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("PaymentId"));
+
+                    b.Property<decimal>("Amount")
+                        .HasColumnType("numeric");
+
+                    b.Property<string>("CVV")
+                        .IsRequired()
+                        .HasMaxLength(3)
+                        .HasColumnType("character varying(3)");
+
+                    b.Property<string>("CardHolderName")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("character varying(50)");
+
+                    b.Property<string>("CardNumber")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("ExpirationDateMonth")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("ExpirationDateYear")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<bool>("IsSuccessful")
+                        .HasColumnType("boolean");
+
+                    b.Property<string>("PaymentStatus")
+                        .HasColumnType("text");
+
+                    b.Property<int>("TransactionId")
+                        .HasColumnType("integer");
+
+                    b.HasKey("PaymentId");
+
+                    b.ToTable("Payment");
+                });
+
             modelBuilder.Entity("BiletPortal.Models.Products", b =>
                 {
                     b.Property<int>("ProductId")
@@ -191,7 +242,7 @@ namespace BiletPortal.Migrations
                     b.ToTable("Products");
                 });
 
-            modelBuilder.Entity("BiletPortal.Models.Seat", b =>
+            modelBuilder.Entity("BiletPortal.Models.SelectSeat", b =>
                 {
                     b.Property<int>("SeatId")
                         .ValueGeneratedOnAdd()
@@ -202,13 +253,30 @@ namespace BiletPortal.Migrations
                     b.Property<bool>("IsBooked")
                         .HasColumnType("boolean");
 
+                    b.Property<int?>("ProductId")
+                        .HasColumnType("integer");
+
+                    b.Property<int?>("ProductsProductId")
+                        .HasColumnType("integer");
+
                     b.Property<string>("SeatNumber")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<int?>("UserId")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("seatIdNumber")
                         .IsRequired()
                         .HasColumnType("text");
 
                     b.HasKey("SeatId");
 
-                    b.ToTable("Seat");
+                    b.HasIndex("ProductsProductId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("SelectSeat");
                 });
 
             modelBuilder.Entity("BiletPortal.Models.Slider", b =>
@@ -351,6 +419,21 @@ namespace BiletPortal.Migrations
                         .IsRequired();
 
                     b.Navigation("Category");
+                });
+
+            modelBuilder.Entity("BiletPortal.Models.SelectSeat", b =>
+                {
+                    b.HasOne("BiletPortal.Models.Products", "Products")
+                        .WithMany()
+                        .HasForeignKey("ProductsProductId");
+
+                    b.HasOne("BiletPortal.Models.AppUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId");
+
+                    b.Navigation("Products");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>

@@ -3,6 +3,7 @@ using System;
 using BiletPortal.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace BiletPortal.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240914193411_Removesometable")]
+    partial class Removesometable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -239,7 +242,7 @@ namespace BiletPortal.Migrations
                     b.ToTable("Products");
                 });
 
-            modelBuilder.Entity("BiletPortal.Models.SelectSeat", b =>
+            modelBuilder.Entity("BiletPortal.Models.Seat", b =>
                 {
                     b.Property<int>("SeatId")
                         .ValueGeneratedOnAdd()
@@ -250,30 +253,30 @@ namespace BiletPortal.Migrations
                     b.Property<bool>("IsBooked")
                         .HasColumnType("boolean");
 
-                    b.Property<int?>("ProductId")
-                        .HasColumnType("integer");
-
-                    b.Property<int?>("ProductsProductId")
+                    b.Property<int>("ProductsProductId")
                         .HasColumnType("integer");
 
                     b.Property<string>("SeatNumber")
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<int?>("UserId")
+                    b.Property<int>("productId")
                         .HasColumnType("integer");
 
                     b.Property<string>("seatIdNumber")
                         .IsRequired()
                         .HasColumnType("text");
 
+                    b.Property<int>("userId")
+                        .HasColumnType("integer");
+
                     b.HasKey("SeatId");
 
                     b.HasIndex("ProductsProductId");
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("userId");
 
-                    b.ToTable("SelectSeat");
+                    b.ToTable("Seat");
                 });
 
             modelBuilder.Entity("BiletPortal.Models.Slider", b =>
@@ -418,15 +421,19 @@ namespace BiletPortal.Migrations
                     b.Navigation("Category");
                 });
 
-            modelBuilder.Entity("BiletPortal.Models.SelectSeat", b =>
+            modelBuilder.Entity("BiletPortal.Models.Seat", b =>
                 {
                     b.HasOne("BiletPortal.Models.Products", "Products")
                         .WithMany()
-                        .HasForeignKey("ProductsProductId");
+                        .HasForeignKey("ProductsProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("BiletPortal.Models.AppUser", "User")
                         .WithMany()
-                        .HasForeignKey("UserId");
+                        .HasForeignKey("userId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Products");
 
