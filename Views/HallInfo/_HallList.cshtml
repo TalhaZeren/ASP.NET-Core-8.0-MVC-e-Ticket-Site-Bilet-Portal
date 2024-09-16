@@ -1,0 +1,63 @@
+﻿@model IEnumerable<BiletPortal.Models.HallInfo>
+
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.HallName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.City)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LocationInformation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Time)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Products)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HallName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.City)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LocationInformation)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Time)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Products.ProductName)
+                </td>
+                <td>
+                    <div class="d-flex justify-content-center">
+                        <a asp-action="Edit" asp-route-id="@item.Hallid" class="btn btn-primary mx-2">Düzenle</a>
+                        <a asp-action="Details" asp-route-id="@item.Hallid" class="btn btn-secondary mx-2">Detaylar</a>
+                        <a asp-action="Delete" asp-route-id="@item.Hallid" class="btn btn-danger mx-2">Sil</a>
+                    </div>
+
+                </td>
+            </tr>
+        }
+
+    </tbody>
+</table>

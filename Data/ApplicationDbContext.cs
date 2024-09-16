@@ -26,7 +26,7 @@ namespace BiletPortal.Data
         public DbSet<AppRole> AppRole { get; set; }
         public DbSet<Payment> Payment { get; set; }
         public DbSet<SelectSeat> SelectSeat { get; set; }
-
+        public DbSet<HallInfo> HallInfo { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -34,7 +34,14 @@ namespace BiletPortal.Data
                 .HasOne(seat => seat.Products)
                 .WithMany()
                 .HasForeignKey(seat => seat.ProductId)
-                .OnDelete(DeleteBehavior.Cascade); 
+                .OnDelete(DeleteBehavior.Cascade);
+
+
+            modelBuilder.Entity<HallInfo>()
+                .HasOne(hall => hall.Products)
+                .WithMany()
+                .HasForeignKey(hall => hall.ProductId)
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }
