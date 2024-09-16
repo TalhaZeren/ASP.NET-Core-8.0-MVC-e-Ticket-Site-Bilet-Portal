@@ -11,7 +11,7 @@ namespace BiletPortal.Models
    
         public string? CategoryName { get; set; } = string.Empty;
       
-        virtual public List<Products> Products { get; set; } 
+        virtual public List<Products>? Products { get; set; } 
 
     }
 }

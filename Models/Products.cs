@@ -32,7 +32,7 @@ namespace BiletPortal.Models
         [Required(ErrorMessage = "Kategori Seçiniz.")]
         public int? CategoryId { get; set; }
    
-        virtual public Category Category { get; set; }
+        virtual public Category? Category { get; set; }
         [NotMapped]
         public IFormFile? ImageUpload { get; set; }
 

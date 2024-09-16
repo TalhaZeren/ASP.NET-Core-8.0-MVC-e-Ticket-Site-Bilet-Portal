@@ -7,10 +7,21 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
+
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseNpgsql("DefaultConnection"));
+{
+    options.UseNpgsql("DefaultConnection");
+
+    // if (builder.Environment.IsDevelopment())
+    //{
+    //    options.EnableSensitiveDataLogging()
+    //      .EnableDetailedErrors()
+    //      .UseLoggerFactory(LoggerFactory.Create(builder => builder.AddConsole()));
+    //}
+}
+);
 
 // Session Struct was imported. 
 builder.Services.AddSession(options =>

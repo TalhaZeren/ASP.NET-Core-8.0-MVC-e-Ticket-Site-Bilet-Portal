@@ -37,6 +37,7 @@ namespace BiletPortal.Controllers
                         var tickets = await _context.SelectSeat
                          .Where(t => t.UserId == user.Id)
                              .Include(t => t.Products) // Ürün bilgisi ile ilişkilendir
+                             .ThenInclude(p => p.Category)
                                .ToListAsync();
                        
 
@@ -115,10 +116,11 @@ namespace BiletPortal.Controllers
                              .Include(t => t.Products) // Ürün bilgisi ile ilişkilendir
                                .ToListAsync();
 
-                        var viewModel = new ProfileViewModel
+                        var viewModel = new ProfileViewModel()
                         {
                             AppUser = user,    // Kullanıcı bilgilerini taşı
                             Tickets = tickets ?? new List<SelectSeat>() // Bilet bilgilerini taşı
+                            
                         };
 
                         return View(viewModel);

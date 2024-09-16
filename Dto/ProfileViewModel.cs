@@ -6,5 +6,6 @@ namespace BiletPortal.Dto
     {
         public AppUser AppUser { get; set; }
         public List<SelectSeat> Tickets { get; set; }
+
     }
 }

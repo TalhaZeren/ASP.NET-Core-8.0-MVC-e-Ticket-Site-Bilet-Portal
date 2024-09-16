@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BiletPortal")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9fc32a151070c0dea6d41f2ef8da7b946ed63d9d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cdb701fa4b92b46c6ea3aae0d45c2408b3b8e478")]
 [assembly: System.Reflection.AssemblyProductAttribute("BiletPortal")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BiletPortal")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -3,9 +3,9 @@
 
 
 <html>
-    <head>
+<head>
 
-        <style>
+    <style>
         .section-content {
             display: none; /* Başlangıçta profil bölümü görünür olacak, diğer bölümler gizli */
         }
@@ -36,168 +36,180 @@
                         color: blue;
                     }
 
-        </style>
+    </style>
 
-    </head>
-    <body>
+</head>
+<body>
 
 
-<section class="auth">
-    <div class="container">
-        <div class="authWrapper">
-            <div class="authMenu">
-                <ul>
-                    <li>
-                        <button id="profileBtn" class="active">Bilgilerim</button>
-                    </li>
-                    <li>
-                        <button id="ticketsBtn">Biletlerim</button>
-                    </li>
-                       
-                </ul>
-            </div>
+    <section class="auth">
+        <div class="container">
+            <div class="authWrapper">
+                <div class="authMenu">
+                    <ul>
+                        <li>
+                            <button id="profileBtn" class="active">Bilgilerim</button>
+                        </li>
+                        <li>
+                            <button id="ticketsBtn">Biletlerim</button>
+                        </li>
 
-            <div class="authContent">
+                    </ul>
+                </div>
 
-             
-                <div id="profileSection" class="section-content">
-                <form asp-action="Edit" asp-controller="Profile">
-                    <div class="form-group">
-                        <label asp-for="AppUser.FirstName" class="control-label"></label>
+                <div class="authContent">
+
+
+                    <div id="profileSection" class="section-content">
+                        <form asp-action="Edit" asp-controller="Profile">
+                            <div class="form-group">
+                                <label asp-for="AppUser.FirstName" class="control-label"></label>
                                 <input asp-for="AppUser.FirstName" class="form-control" />
                                 <span asp-validation-for="AppUser.FirstName" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="AppUser.LastName" class="control-label"></label>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="AppUser.LastName" class="control-label"></label>
                                 <input asp-for="AppUser.LastName" class="form-control" />
                                 <span asp-validation-for="AppUser.LastName" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
+                            </div>
+                            <div class="form-group">
                                 <label asp-for="AppUser.Email" class="control-label"></label>
                                 <input asp-for="AppUser.Email" class="form-control" />
                                 <span asp-validation-for="AppUser.Email" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <div class="btn-group bootstrap-select input-sm">
+                            </div>
+                            <div class="form-group">
+                                <div class="btn-group bootstrap-select input-sm">
                                     <select asp-for="AppUser.City" class="form-control input-sm">
-                                <option value="5">İstanbul Avrupa</option>
-                                <option value="77">İstanbul Anadolu</option>
-                                <option value="11">Bursa</option>
-                                <option value="3" >Ankara</option>
-                                <option value="24">İzmir</option>
-                                <option value="19">Eskişehir</option>
-                                <option value="12">Adana</option>
-                                <option value="96">Adıyaman</option>
-                                <option value="76">Afyon</option>
-                                <option value="97">Ağrı</option>
-                                <option value="75">Amasya</option>
-                                <option value="23">Antalya</option>
-                                <option value="80">Artvin</option>
-                                <option value="29">Aydın</option>
-                                <option value="25">Balıkesir</option>
-                                <option value="86">Bilecik</option>
-                                <option value="98">Bingöl</option>
-                                <option value="99">Bitlis</option>
-                                <option value="36">Bolu</option>
-                                <option value="81">Burdur</option>
-                                <option value="78">Çanakkale</option>
-                                <option value="79">Çankırı</option>
-                                <option value="74">Çorum</option>
-                                <option value="14">Denizli</option>
-                                <option value="10">Diyarbakır</option>
-                                <option value="53">Edirne</option>
-                                <option value="33">Elazığ </option>
-                                <option value="42">Erzincan</option>
-                                <option value="90">Erzurum</option>
-                                <option value="9">Gaziantep</option>
-                                <option value="88">Giresun</option>
-                                <option value="34">Gümüşhane</option>
-                                <option value="100">Hakkari</option>
-                                <option value="8">Hatay</option>
-                                <option value="28">Isparta</option>
-                                <option value="85">Mersin</option>
-                                <option value="101">Kars</option>
-                                <option value="41">Kastamonu</option>
-                                <option value="83">Kayseri</option>
-                                <option value="30">Kırklareli</option>
-                                <option value="102">Kırşehir</option>
-                                <option value="20">Kocaeli</option>
-                                <option value="13">Konya</option>
-                                <option value="38">Kütahya</option>
-                                <option value="15">Malatya</option>
-                                <option value="69">Manisa</option>
-                                <option value="89">Kahramanmaraş</option>
-                                <option value="103">Mardin</option>
-                                <option value="4">Muğla</option>
-                                <option value="104">Muş</option>
-                                <option value="18">Nevşehir</option>
-                                <option value="82">Niğde</option>
-                                <option value="48">Ordu</option>
-                                <option value="32">Rize</option>
-                                <option value="39">Sakarya</option>
-                                <option value="43">Samsun</option>
-                                <option value="94">Siirt</option>
-                                <option value="92">Sinop</option>
-                                <option value="73">Sivas</option>
-                                <option value="84">Tekirdağ</option>
-                                <option value="106">Tokat</option>
-                                <option value="16">Trabzon</option>
-                                <option value="107">Tunceli</option>
-                                <option value="108">Şanlıurfa</option>
-                                <option value="68">Uşak</option>
-                                <option value="109">Van</option>
-                                <option value="110">Yozgat</option>
-                                <option value="6">Zonguldak</option>
-                                <option value="87">Aksaray</option>
-                                <option value="111">Bayburt</option>
-                                <option value="45">Karaman</option>
-                                <option value="26">Kırıkkale</option>
-                                <option value="95">Batman</option>
-                                <option value="112">Şırnak</option>
-                                <option value="35">Bartın</option>
-                                <option value="113">Ardahan</option>
-                                <option value="114">Iğdır</option>
-                                <option value="21">Yalova</option>
-                                <option value="91">Karabük</option>
-                                <option value="115">Kilis</option>
-                                <option value="49">Osmaniye</option>
-                                <option value="31">Düzce</option>
-                                <option value="55">Kıbrıs</option>
-                            </select>
-                        </div>
+                                        <option value="5">İstanbul Avrupa</option>
+                                        <option value="77">İstanbul Anadolu</option>
+                                        <option value="11">Bursa</option>
+                                        <option value="3">Ankara</option>
+                                        <option value="24">İzmir</option>
+                                        <option value="19">Eskişehir</option>
+                                        <option value="12">Adana</option>
+                                        <option value="96">Adıyaman</option>
+                                        <option value="76">Afyon</option>
+                                        <option value="97">Ağrı</option>
+                                        <option value="75">Amasya</option>
+                                        <option value="23">Antalya</option>
+                                        <option value="80">Artvin</option>
+                                        <option value="29">Aydın</option>
+                                        <option value="25">Balıkesir</option>
+                                        <option value="86">Bilecik</option>
+                                        <option value="98">Bingöl</option>
+                                        <option value="99">Bitlis</option>
+                                        <option value="36">Bolu</option>
+                                        <option value="81">Burdur</option>
+                                        <option value="78">Çanakkale</option>
+                                        <option value="79">Çankırı</option>
+                                        <option value="74">Çorum</option>
+                                        <option value="14">Denizli</option>
+                                        <option value="10">Diyarbakır</option>
+                                        <option value="53">Edirne</option>
+                                        <option value="33">Elazığ </option>
+                                        <option value="42">Erzincan</option>
+                                        <option value="90">Erzurum</option>
+                                        <option value="9">Gaziantep</option>
+                                        <option value="88">Giresun</option>
+                                        <option value="34">Gümüşhane</option>
+                                        <option value="100">Hakkari</option>
+                                        <option value="8">Hatay</option>
+                                        <option value="28">Isparta</option>
+                                        <option value="85">Mersin</option>
+                                        <option value="101">Kars</option>
+                                        <option value="41">Kastamonu</option>
+                                        <option value="83">Kayseri</option>
+                                        <option value="30">Kırklareli</option>
+                                        <option value="102">Kırşehir</option>
+                                        <option value="20">Kocaeli</option>
+                                        <option value="13">Konya</option>
+                                        <option value="38">Kütahya</option>
+                                        <option value="15">Malatya</option>
+                                        <option value="69">Manisa</option>
+                                        <option value="89">Kahramanmaraş</option>
+                                        <option value="103">Mardin</option>
+                                        <option value="4">Muğla</option>
+                                        <option value="104">Muş</option>
+                                        <option value="18">Nevşehir</option>
+                                        <option value="82">Niğde</option>
+                                        <option value="48">Ordu</option>
+                                        <option value="32">Rize</option>
+                                        <option value="39">Sakarya</option>
+                                        <option value="43">Samsun</option>
+                                        <option value="94">Siirt</option>
+                                        <option value="92">Sinop</option>
+                                        <option value="73">Sivas</option>
+                                        <option value="84">Tekirdağ</option>
+                                        <option value="106">Tokat</option>
+                                        <option value="16">Trabzon</option>
+                                        <option value="107">Tunceli</option>
+                                        <option value="108">Şanlıurfa</option>
+                                        <option value="68">Uşak</option>
+                                        <option value="109">Van</option>
+                                        <option value="110">Yozgat</option>
+                                        <option value="6">Zonguldak</option>
+                                        <option value="87">Aksaray</option>
+                                        <option value="111">Bayburt</option>
+                                        <option value="45">Karaman</option>
+                                        <option value="26">Kırıkkale</option>
+                                        <option value="95">Batman</option>
+                                        <option value="112">Şırnak</option>
+                                        <option value="35">Bartın</option>
+                                        <option value="113">Ardahan</option>
+                                        <option value="114">Iğdır</option>
+                                        <option value="21">Yalova</option>
+                                        <option value="91">Karabük</option>
+                                        <option value="115">Kilis</option>
+                                        <option value="49">Osmaniye</option>
+                                        <option value="31">Düzce</option>
+                                        <option value="55">Kıbrıs</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" value="Değişiklikleri Kaydet" class="btn btn-" />
+                            </div>
+                        </form>
                     </div>
-                    <div class="form-group">
-                        <input type="submit" value="Değişiklikleri Kaydet" class="btn btn-primary" />
-                    </div>
-                </form>
-                </div>
                     <div id="ticketsSection" class="section-content" style="display: none;">
-                     
+
 
                         <div id="ticketsSection">
                             <h3>Biletlerim</h3>
-                            @if (Model.Tickets !=null)
+                            @if (Model.Tickets != null)
                             {
                                 <table class="table">
                                     <thead>
                                         <tr>
+                                            <th></th>
+                                            <th>Adı</th>
+                                            <th>Soyadı</th>
+                                            <th>Şehir</th>
+                                            <th>Bilet Numarası</th>
                                             <th>Etkinlik</th>
-                                            <th>Fiyat</th>
                                             <th>Kategori</th>
-                                            <th>Koltuk No</th>
+                                            <th>Etkinlik Ücreti</th>
+                                            <th>Etkinlik Resmi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                         @foreach (var item in Model.Tickets)
+                                        @foreach (var item in Model.Tickets)
                                         {
+                                           
                                             <tr>
-                                                <td>@item.Products.ProductName</td>
-                                                <td>@item.Products.ProductPrice</td>
-                                                <td>@item.Products.Category.CategoryName </td>
-                                                <td>@item.seatIdNumber</td>
-                                               
+                                                <td> <a href="~/Home/Detail/@item.Products.ProductId"> <input type="submit" class="btn btn-secondary" value="Tekrar Satın Al"/></a></td>
+                                                <td>@(item.User != null ? item.User.FirstName : "Kullancı adı bilgisi yok")</td>
+                                                <td>@(item.User != null ? item.User.LastName : "Kullancı adı bilgisi yok")</td>
+                                                <td>@(item.User != null ? item.User.City : "Kullancı adı bilgisi yok")</td>
+                                                <td>@(item.seatIdNumber != null ? item.seatIdNumber : "Id bilgisi yok bilgisi yok")</td>
+                                                <td>@(item.Products != null ? item.Products.ProductName : "Ürün bilgisi yok")</td>
+                                                <td>@(item.Products != null ? item.Products.Category.CategoryName : "Kategori bilgisi yok")</td>
+                                                <td>@(item.Products != null ? item.Products.ProductPrice : "Fiyat bilgisi yok")</td>
+                                                <td> <img src="~/Urunler/@item.Products.ProductPicture" width="50" height="75" /> </td>
+                                                
                                             </tr>
-                                        } 
+                                          
+                                        }
                                     </tbody>
                                 </table>
                             }
@@ -208,12 +220,12 @@
 
                         </div>
                     </div>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<script>
+    <script>
         document.getElementById('profileBtn').addEventListener('click', function () {
             document.getElementById('profileSection').style.display = 'block';
             document.getElementById('ticketsSection').style.display = 'none';
@@ -230,7 +242,7 @@
             document.getElementById('profileBtn').classList.remove('active');
         });
 
-</script>
+    </script>
 
 </body>
 </html>

@@ -108,10 +108,30 @@
             .modal-button:hover {
                 background-color: #45a049;
             }
+
+
+        .seatLocation {
+            display: flex;
+            justify-content: center;
+            flex-direction: row; /* Koltuklar ve resmi yan yana göstermek için */
+            align-items: center;
+        }
+
+        .seatSection {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .productImage {
+            margin-right: 20px; /* Resim ile koltuklar arasına boşluk eklemek için */
+        }
     </style>
 </head>
 
 <body>
+       
+        
+  
    
       @if (Model != null && Model.ProductId > 0)
     {
@@ -119,7 +139,13 @@
 
             <div class="seatLocation">
 
-                <div class="Koltuklar " style="height: 371px;">
+                <span class="productImage" style="padding: 10px 40px 50px 5px;">
+                    <img src="~/Urunler/@Model.Products.ProductPicture" width="230" height="300" alt="Ürün Resmi" />
+                    <h3 style="text-align:center;text-align:center;font-weight:bold">@Model.Products.ProductName</h3>
+                    <h5 style="text-align:center;font-weight:bold">@Model.Products.ProductPrice ₺</h5>
+                </span>
+
+                <div class="Koltuklar " style="height: 371px; padding-right: 150px;">
                     <input name="__RequestVerificationToken" type="hidden" value="99Yo9WMm9vQeAlUXc4rLyAfRkJQRs6ydy5UILc1N6jroYQDMAjYURpXe-Clm27TAGva6wrlU0SzHay1CFXb7oWBj6Qs1">
 
 
@@ -462,7 +488,7 @@
 
 
 
-                <button id="continueButton" class="modal-button" style="display:none" onclick="confirmSelection()">Koltuğu Al</button>
+                <button id="continueButton" class="btn btn-success" style="display:none; width: 200px; height: 80px; font-size: 20px; padding: 10px 20px;" onclick="confirmSelection()">Koltuğu Al</button>
 
 
                 <div id="successModal" class="modal" style="display: none;">
