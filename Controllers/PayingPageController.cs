@@ -24,7 +24,7 @@ namespace BiletPortal.Controllers
         {
             return View();
         }
-
+                    
 
         [HttpPost]
         public async Task<IActionResult> TakePayment(PaymentDto paymentDto)

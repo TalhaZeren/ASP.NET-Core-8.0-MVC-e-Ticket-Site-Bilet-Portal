@@ -36,7 +36,7 @@ namespace BiletPortal.Controllers
                     {
                         var tickets = await _context.SelectSeat
                          .Where(t => t.UserId == user.Id)
-                             .Include(t => t.Products) // Ürün bilgisi ile ilişkilendir
+                             .Include(h => h.HallInfo).Include(t => t.Products) // Ürün bilgisi ile ilişkilendir
                              .ThenInclude(p => p.Category)
                                .ToListAsync();
                        

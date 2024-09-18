@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h1>Etkinlik Listesi</h1>
+<h1>Salon Listesi</h1>
 
 
 <form id="searchForm" method="get" asp-action="Index" asp-controller="HallInfo"
@@ -26,7 +26,7 @@
 </p>
 <div id="searchResult">
 
-    @await Html.PartialAsync("_HallList", Model);
+    @await Html.PartialAsync("_HallList", Model)
 
 </div>
 

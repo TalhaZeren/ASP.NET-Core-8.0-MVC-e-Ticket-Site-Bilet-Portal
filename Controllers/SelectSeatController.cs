@@ -15,7 +15,7 @@ public class SelectSeatController : Controller
         _signInManager = signInManager;
     }
 
-    public IActionResult Index(int productId)
+    public IActionResult Index(int productId, int hallId)
     {
         if (_signInManager.IsSignedIn(User))
         {
@@ -25,8 +25,16 @@ public class SelectSeatController : Controller
                 return NotFound("Ürün bulunamadı.");
             }
 
+            var hall = _context.HallInfo.FirstOrDefault(h=> h.Hallid == hallId);
+            if (hall == null)
+            {
+                return NotFound("Ürün bulunamadı.");
+            }
+
             var model = new SelectSeat
             {
+                hallId = hallId,    
+                HallInfo = hall,
                 ProductId = productId,
                 Products = product
             };
@@ -38,7 +46,7 @@ public class SelectSeatController : Controller
     }
 
     [HttpPost]
-    public async Task<IActionResult> SaveSeats(string seatId, int productId)
+    public async Task<IActionResult> SaveSeats(string seatId, int productId,int hallId)
     {
         Random random = new Random();
         if (_signInManager.IsSignedIn(User))
@@ -47,9 +55,9 @@ public class SelectSeatController : Controller
             var user = await _signInManager.UserManager.GetUserAsync(User); // Kullanıcı bilgilerini al
 
 
-            if (!string.IsNullOrEmpty(seatId) && productId > 0)
+            if (!string.IsNullOrEmpty(seatId) && productId > 0 && hallId > 0)
             {
-                var seat = await _context.SelectSeat.FirstOrDefaultAsync(s => s.seatIdNumber == seatId && s.ProductId == productId);
+                var seat = await _context.SelectSeat.FirstOrDefaultAsync(s => s.seatIdNumber == seatId && s.ProductId == productId && s.hallId == hallId);
                 if (seat != null)
                 {
                     return Json(new { success = false, message = "Koltuk zaten dolu!" });
@@ -61,7 +69,8 @@ public class SelectSeatController : Controller
                     ProductId = productId,
                     SeatNumber = "SeatNumber",
                     IsBooked = true,
-                    UserId = user.Id// Kullanıcıyla ilişkilendir
+                    UserId = user.Id,// Kullanıcıyla ilişkilendir
+                   hallId = hallId
                 };
 
                 _context.SelectSeat.Add(newSeat);

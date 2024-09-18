@@ -155,21 +155,30 @@ namespace BiletPortal.Migrations
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Hallid"));
 
                     b.Property<string>("City")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Date")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("HallName")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("HallPicture")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("LocationInformation")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<int>("ProductId")
                         .HasColumnType("integer");
 
                     b.Property<string>("Time")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.HasKey("Hallid");
@@ -289,6 +298,9 @@ namespace BiletPortal.Migrations
                     b.Property<int?>("UserId")
                         .HasColumnType("integer");
 
+                    b.Property<int?>("hallId")
+                        .HasColumnType("integer");
+
                     b.Property<string>("seatIdNumber")
                         .HasColumnType("text");
 
@@ -297,6 +309,8 @@ namespace BiletPortal.Migrations
                     b.HasIndex("ProductId");
 
                     b.HasIndex("UserId");
+
+                    b.HasIndex("hallId");
 
                     b.ToTable("SelectSeat");
                 });
@@ -464,6 +478,13 @@ namespace BiletPortal.Migrations
                     b.HasOne("BiletPortal.Models.AppUser", "User")
                         .WithMany()
                         .HasForeignKey("UserId");
+
+                    b.HasOne("BiletPortal.Models.HallInfo", "HallInfo")
+                        .WithMany()
+                        .HasForeignKey("hallId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.Navigation("HallInfo");
 
                     b.Navigation("Products");
 

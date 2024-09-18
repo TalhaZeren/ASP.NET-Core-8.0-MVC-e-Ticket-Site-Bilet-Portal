@@ -17,7 +17,6 @@ namespace BiletPortal.Models
         [Display(Name = "Resim")]
         public string? SliderImage { get; set; } = string.Empty;
         [NotMapped]
-       
         public IFormFile? ImageUpload { get; set; }
 
 

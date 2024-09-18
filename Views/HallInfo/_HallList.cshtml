@@ -23,7 +23,11 @@
             <th>
                 @Html.DisplayNameFor(model => model.Products)
             </th>
-            <th></th>
+             <th>
+                @Html.DisplayNameFor(model => model.HallPicture)
+            </th>
+            <th>
+            </th>
         </tr>
     </thead>
     <tbody>
@@ -48,6 +52,11 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Products.ProductName)
                 </td>
+
+                <td>
+                    <img src="~/Urunler/@item.HallPicture" width="50" height="50" />
+                </td>
+
                 <td>
                     <div class="d-flex justify-content-center">
                         <a asp-action="Edit" asp-route-id="@item.Hallid" class="btn btn-primary mx-2">Düzenle</a>

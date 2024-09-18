@@ -114,6 +114,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxEZXRhaWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/BiletPortal/BiletPortal/BiletPortal/Views/Home/Hall.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxIYWxsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/BiletPortal/BiletPortal/BiletPortal/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -184,6 +188,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/BiletPortal/BiletPortal/BiletPortal/Views/Shared/Components/ConcertList/Default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcQ29uY2VydExpc3RcRGVmYXVsdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BiletPortal/BiletPortal/BiletPortal/Views/Shared/Components/HallList/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcSGFsbExpc3RcRGVmYXVsdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/BiletPortal/BiletPortal/BiletPortal/Views/Shared/Components/PopularList/Default.cshtml]

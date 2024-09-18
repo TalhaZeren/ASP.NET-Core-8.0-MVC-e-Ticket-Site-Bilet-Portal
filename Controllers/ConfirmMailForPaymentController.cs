@@ -34,7 +34,6 @@ namespace BiletPortal.Controllers
             {
                 if (payment.Email == confirmPayment.Email)
                 {
-                    
                     payment.IsSuccessful = true;
                     HttpContext.Session.Remove("Card");
                     await _context.SaveChangesAsync();

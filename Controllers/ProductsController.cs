@@ -63,14 +63,7 @@ namespace BiletPortal.Controllers
             }
 
              // Return to .cshtml
-
-
-         
-        
         }
-
-
-
 
         // Get procces for Products/Details/5
         public async Task<IActionResult> Details(int? id)

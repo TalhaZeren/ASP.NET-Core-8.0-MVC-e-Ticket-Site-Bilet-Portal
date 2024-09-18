@@ -184,12 +184,17 @@
                                             <th></th>
                                             <th>Adı</th>
                                             <th>Soyadı</th>
-                                            <th>Şehir</th>
                                             <th>Bilet Numarası</th>
                                             <th>Etkinlik</th>
                                             <th>Kategori</th>
                                             <th>Etkinlik Ücreti</th>
                                             <th>Etkinlik Resmi</th>
+                                            <th>Salon Adı</th>
+                                            <th>Şehir</th>
+                                            <th>Tarih</th>
+                                            <th>Saat</th>
+                                            <th>Adres</th>
+                                            <th>Salon Resmi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -200,13 +205,19 @@
                                                 <td> <a href="~/Home/Detail/@item.Products.ProductId"> <input type="submit" class="btn btn-secondary" value="Tekrar Satın Al"/></a></td>
                                                 <td>@(item.User != null ? item.User.FirstName : "Kullancı adı bilgisi yok")</td>
                                                 <td>@(item.User != null ? item.User.LastName : "Kullancı adı bilgisi yok")</td>
-                                                <td>@(item.User != null ? item.User.City : "Kullancı adı bilgisi yok")</td>
                                                 <td>@(item.seatIdNumber != null ? item.seatIdNumber : "Id bilgisi yok bilgisi yok")</td>
                                                 <td>@(item.Products != null ? item.Products.ProductName : "Ürün bilgisi yok")</td>
                                                 <td>@(item.Products != null ? item.Products.Category.CategoryName : "Kategori bilgisi yok")</td>
                                                 <td>@(item.Products != null ? item.Products.ProductPrice : "Fiyat bilgisi yok")</td>
                                                 <td> <img src="~/Urunler/@item.Products.ProductPicture" width="50" height="75" /> </td>
-                                                
+                                                <td>@(item.HallInfo != null ? item.HallInfo.HallName : "Fiyat bilgisi yok")</td>
+                                                <td>@(item.HallInfo != null ? item.HallInfo.City : "Fiyat bilgisi yok")</td>
+                                                <td>@(item.HallInfo != null ? item.HallInfo.Date : "Fiyat bilgisi yok")</td>
+                                                <td>@(item.HallInfo != null ? item.HallInfo.Time : "Fiyat bilgisi yok")</td>
+                                                <td>@(item.HallInfo != null ? item.HallInfo.LocationInformation : "Fiyat bilgisi yok")</td>
+                                                <td> <img src="~/Urunler/@item.HallInfo.HallPicture" width="50" height="75" /> </td>
+                                               
+                                               
                                             </tr>
                                           
                                         }

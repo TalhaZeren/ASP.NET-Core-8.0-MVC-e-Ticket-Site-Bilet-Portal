@@ -21,9 +21,6 @@ namespace BiletPortal.Component
 
         public IViewComponentResult Invoke()
         {
-           
-      
-
             return View();
         }
 

@@ -19,7 +19,8 @@ namespace BiletPortal.Controllers
         [HttpGet]
         public async Task<IActionResult> Index(string? searchTerm)
         {
-            var model = await _context.HallInfo.ToListAsync();
+            var applicationDbContext = _context.HallInfo.Include(p => p.Products); // Eager Loading
+            var model = await applicationDbContext.ToListAsync();
             if (!string.IsNullOrEmpty(searchTerm))
             {
                 model = await _context.HallInfo.Where(s => s.HallName.ToLower().Contains(searchTerm)).ToListAsync();
@@ -62,10 +63,32 @@ namespace BiletPortal.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult>
-            Create([Bind("Hallid,HallName,City,LocationInformation,Date,Time,ProductId")] HallInfo hallInfo)
+            Create([Bind("Hallid,HallName,City,LocationInformation," +
+            "Date,Time,ProductId")] HallInfo hallInfo, IFormFile? ImageUpload)
         {
 
-            if (ModelState.IsValid) // Necessary fields is validated.
+            // Image Upload Process
+            if (ImageUpload != null)
+            {
+                // This row gets type of file like .png , .jpg etc.
+                var extension = Path.GetExtension(ImageUpload.FileName);
+
+                // This row creates an unique name for file
+                string newName = Guid.NewGuid().ToString() + extension;
+
+                // This row creates the files will be registered.
+                string path = Path.Combine(Directory.GetCurrentDirectory() + "/wwwroot/Urunler/" + newName);
+
+
+                // This Scope provides to create a new file.
+                using (var stream = new FileStream(path, FileMode.Create))
+                {
+                    ImageUpload.CopyTo(stream);
+                }
+                hallInfo.HallPicture = newName;
+            }
+
+            if (!ModelState.IsValid) // Necessary fields is validated.
             {
                 _context.Add(hallInfo); // After that marked to add database.
                 await _context.SaveChangesAsync(); // added to database
@@ -93,7 +116,10 @@ namespace BiletPortal.Controllers
             {
                 return NotFound();
             }
+
+            ViewBag.productList = new SelectList(_context.Products, "ProductId", "ProductName");
             return View(hallInfo);
+
         }
 
         // POST: HallInfo/Edit/5
@@ -102,18 +128,34 @@ namespace BiletPortal.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult>
-            Edit(int id, [Bind("Hallid,HallName,City,LocationInformation,Date,Time,ProductId")] HallInfo hallInfo)
+            Edit(int id, [Bind("Hallid,HallName,City,LocationInformation,Date,Time," +
+            "ProductId,HallPicture")] HallInfo hallInfo, IFormFile? ImageUpload)
         {
-            
+            if (ImageUpload != null)
+            {
+                // This row gets type of file like .png , .jpg etc.
+                var extension = Path.GetExtension(ImageUpload.FileName);
+
+                // This row creates an unique name for file
+                string newName = Guid.NewGuid().ToString() + extension;
+
+                // This row creates the files will be registered.
+                string path = Path.Combine(Directory.GetCurrentDirectory() + "/wwwroot/Urunler/" + newName);
 
 
-
+                // This Scope provides to create a new file.
+                using (var stream = new FileStream(path, FileMode.Create))
+                {
+                    ImageUpload.CopyTo(stream);
+                }
+                hallInfo.HallPicture = newName;
+            }
             if (id != hallInfo.Hallid)
             {
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 try
                 {
@@ -133,6 +175,8 @@ namespace BiletPortal.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["ProductId"] = new SelectList(_context.Products, "ProductId",
+                                                  "ProductId", hallInfo.ProductId);
             return View(hallInfo);
         }
 
@@ -161,22 +205,26 @@ namespace BiletPortal.Controllers
         public async Task<IActionResult>
         DeleteConfirmed(int id)
         {
-
             var hallInfo = await _context.HallInfo.FindAsync(id);
             if (hallInfo != null)
             {
                 _context.HallInfo.Remove(hallInfo);
             }
-
+            // File Deleting Start
+            string path = Path.Combine(Directory.GetCurrentDirectory() + "/wwwroot/Urunler/" + hallInfo.HallPicture);
+            FileInfo pathFile = new FileInfo(path);
+            if (pathFile.Exists)
+            {
+                System.IO.File.Delete(pathFile.FullName);
+                pathFile.Delete();
+            }
+            // File Deleting End
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
-
         private bool HallInfoExists(int id)
         {
             return _context.HallInfo.Any(e => e.Hallid == id);
         }
     }
 }
-    
-

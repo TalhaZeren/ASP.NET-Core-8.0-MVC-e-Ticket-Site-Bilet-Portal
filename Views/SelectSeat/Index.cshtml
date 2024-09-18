@@ -501,11 +501,12 @@
             <div class="stage">
                 PERDE
             </div>
-       
 
 
-    <script>
-                var selectedSeat = null; // Tek koltuk seçimi için global değişken
+
+            <script>
+                var selectedSeat = null;
+                var hallId = "@Model.hallId"; // HallID'yi Razor modelinden alıyoruz
 
                 function selectSeat(seat) {
                     if (!seat.classList.contains('closed-seat')) {
@@ -525,32 +526,32 @@
 
                 function confirmSelection() {
                     var seatId = selectedSeat.getAttribute("data-seatid");
-                    var productId = "@Model.ProductId";
+                    var productId = "@Model.ProductId"; // Razor'dan productId'yi alıyoruz
+                    var hallId = "@Model.hallId"; // Razor'dan hallId'yi alıyoruz
 
-                    saveToDatabase(seatId, productId);
+                    saveToDatabase(seatId, productId, hallId); // HallID'yi de gönderiyoruz
                 }
 
-                function saveToDatabase(seatId, productId) {
+                function saveToDatabase(seatId, productId, hallId) {
                     $.ajax({
                         url: '/SelectSeat/SaveSeats',
                         type: 'POST',
-                        data: { seatId: seatId, productId: productId },
+                        data: { seatId: seatId, productId: productId, hallId: hallId }, // HallID'yi de gönderiyoruz
                         dataType: "json",
                         success: function (response) {
                             if (response.success) {
                                 alert('Koltuk başarıyla alındı!');
 
-                                // Seçilen koltuğu kitli hale getir
                                 selectedSeat.classList.add('closed-seat');
-                                selectedSeat.classList.remove('selected'); // Seçim durumu kaldır
-                                selectedSeat.style.backgroundColor = 'yellow'; // Kitlenen koltuğun rengini değiştir
+                                selectedSeat.classList.remove('selected');
+                                selectedSeat.style.backgroundColor = 'yellow';
 
-                                selectedSeat = null; // Seçimi sıfırla
-                                updateContinueButton(); // Butonu gizle
+                                selectedSeat = null;
+                                updateContinueButton();
 
                                 document.getElementById('successModal').style.display = 'block';
                                 document.getElementById('redirectButton').addEventListener('click', function () {
-                                    window.location.href = '/Card/Index'; // Yönlendirilmek istenen sayfa
+                                    window.location.href = '/Card/Index';
                                 });
                             } else {
                                 alert(response.message);
@@ -561,8 +562,8 @@
                         }
                     });
                 }
+            </script>
 
-    </script>
 
     <!-- jQuery CDN -->
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

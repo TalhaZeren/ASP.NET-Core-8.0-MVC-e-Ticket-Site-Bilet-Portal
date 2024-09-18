@@ -9,5 +9,8 @@ namespace BiletPortal.Models
         public string? City { get; set; }
         public int? ConfirmCode { get; set; }
 
+
+
+
     }
 }

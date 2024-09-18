@@ -1,0 +1,83 @@
+﻿@model List<BiletPortal.Models.HallInfo>
+
+<html>
+<head>
+
+    <style>
+        .product-item {
+            transition: transform 0.2s ease;
+        }
+
+            .product-item:hover {
+                transform: translateY(-10px);
+            }
+
+        .image-button {
+            border: none;
+            padding: 0;
+            background: none;
+        }
+
+            .image-button img {
+                transition: transform 0.2s ease;
+            }
+
+            .image-button:hover img {
+                transform: scale(1.05); /* Hover üzerinde büyütme efekti */
+            }
+
+        h6.font-weight-bold {
+            font-size: 16px;
+        }
+
+        .text-muted {
+            font-size: 14px;
+            color: #6c757d;
+        }
+    </style>
+
+
+
+</head>
+<body>
+
+    <div class="container-fluid pt-5">
+        <div class="text-center mb-4">
+            <h2 class="section-title px-5"><span class="px-2" style="font-family:'Times New Roman', Times, serif">Salonlar</span></h2>
+        </div>
+        <div class="row px-xl-5 pb-3">
+            @foreach (var item in Model)
+            {
+                <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+                    <div class="card product-item border-0 mb-4">
+                        <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0" style="height: 300px;">
+                            <!-- Resim alanı için sabit yükseklik -->
+                            <button onclick="goToSelectSeat(@item.ProductId, @item.Hallid)" class="image-button">
+                                <img class="img-fluid w-100 h-100" src="/Urunler/@item.HallPicture" alt="" style="object-fit:cover;">
+                            </button>
+                        </div>
+                   
+                        <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
+                            <h6 class="text-truncate mb-3 font-weight-bold">@item.HallName</h6>
+                            <h6 class="text-muted">@item.City</h6>
+                            <br />
+                        </div>  
+                        <div class="card-footer d-flex justify-content-between bg-light border">
+                        </div>
+                    </div>
+                </div>
+            }
+            @* Repeat for all items *@
+        </div>
+    </div>
+
+
+
+    <script>
+        // Hall sayfasından SelectSeat/Index sayfasına yönlendirme
+        function goToSelectSeat(productId, hallId) {
+            window.location.href = `/SelectSeat/Index?productId=${productId}&hallId=${hallId}`;
+        }
+    </script>
+</body>
+</html>

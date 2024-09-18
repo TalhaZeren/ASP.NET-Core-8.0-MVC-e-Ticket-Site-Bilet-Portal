@@ -42,6 +42,13 @@ namespace BiletPortal.Data
                 .WithMany()
                 .HasForeignKey(hall => hall.ProductId)
                 .OnDelete(DeleteBehavior.Cascade);
+
+
+            modelBuilder.Entity<SelectSeat>()
+                .HasOne(seat => seat.HallInfo)
+                .WithMany()
+                .HasForeignKey(seat => seat.hallId)
+                .OnDelete(DeleteBehavior.Cascade);  
         }
     }
 }

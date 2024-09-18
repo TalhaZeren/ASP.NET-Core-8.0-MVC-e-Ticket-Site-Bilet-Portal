@@ -8,9 +8,7 @@
 }
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-
     <style>
-
         .popup {
             width: 400px;
             background: #fff;
@@ -42,12 +40,16 @@
             cursor: pointer;
         }
 
+        .popup-fail {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+
     </style>
 
 </head>
 
 <body>
-
 
     <!-- Page Header Start -->
     <div class="container-fluid bg-secondary mb-5">
@@ -93,61 +95,65 @@
 
             <div class="col-lg-7 pb-5">
                 <h3 class="font-weight-semi-bold">@Model.ProductName</h3>
-                
                 <h3 class="font-weight-semi-bold mb-4">@Model.ProductPrice ₺</h3>
                 <p class="mb-4">@Model.ProductDescription</p>
-              
-                <div >
-                    <div style="width: 130px;">
-                       
-                    </div>
 
-
-                    <button id="add-to-cart" class="btn btn-success text-dark p-3" ">
-                        <i class="fas fa-shopping-cart tex-primary mr-1"></i>Sepete Ekle
+                <div>
+                    <button id="add-to-cart" class="btn btn-success text-dark p-3">
+                        <i class="fas fa-shopping-cart tex-primary mr-1"></i> Sepete Ekle
                     </button>
                 </div>
 
-
-                <!-- Popup -->
-                <div id="popup" class="popup">
+                <!-- Başarılı Popup -->
+                <div id="popup-success" class="popup">
                     <img src="/LoginPageImage/tick.png" alt="Success" />
                     <h2>Başarıyla Sepete Eklendi!</h2>
-                    <button id="redirect-button">Koltuk Seçimine Git</button>
+                    <button id="redirect-button">Devam Et</button>
                 </div>
 
+                <!-- Hata Popup (Giriş Yapmadıysa) -->
+                <div id="popup-fail" class="popup popup-fail">
+                    <h2>Giriş Yapılmadı!</h2>
+                    <p>Lütfen giriş yapın.</p>
+                    <button id="login-button">Giriş Yap</button>
+                </div>
 
+                <script>
+                    const csrfToken = '@tokens.RequestToken'; // CSRF token JavaScript'te kullanıma hazır
+                    document.getElementById("add-to-cart").addEventListener("click", function () {
+                        var productId = "@Model.ProductId";
 
-               
-    <script>
-        const csrfToken = '@tokens.RequestToken'; // CSRF token JavaScript'te kullanıma hazır
-        document.getElementById("add-to-cart").addEventListener("click", function () {
+                        fetch('/Card/Add/' + productId, {
+                            method: "POST",
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'X-CSRF-TOKEN': csrfToken
+                            }
+                        })
+                            .then(response => response.json())
+                            .then(data => {
+                                if (data.success) {
+                                    document.getElementById("popup-success").classList.add("open-popup");
+                                } else {
+                                    document.getElementById("popup-fail").classList.add("open-popup");
+                                }
+                            });
+                    });
 
-            var productId = "@Model.ProductId";
+                    // Popup butonları
+                    document.getElementById("redirect-button").addEventListener("click", function () {
+                        window.location.href = '/Home/Hall?productId=@Model.ProductId';
+                    });
 
-            fetch('/Card/Add/' + productId, {
-                method: "POST",
-                headers: {
-                    'Content-Type': 'json',
-                    'X-CSRF-TOKEN': csrfToken
-                }
-            })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.success) {
-                        document.getElementById("popup").classList.add("open-popup");
-                    } else {
-                        alert(data.message);
-                        window.location.href = '/Login/Index'; // Yönlendirilmek istenen sayfa URL'si
-                    }
-                });
-        });
+                    document.getElementById("login-button").addEventListener("click", function () {
+                        window.location.href = '/Login/Index';
+                    });
+                </script>
 
-        document.getElementById("redirect-button").addEventListener("click", function () {
-            window.location.href = '/SelectSeat/Index?productId=@Model.ProductId';
-        });
-    </script>
-
+            </div>
+        </div>
+    </div>
+    <!-- Shop Detail End -->
 
 </body>
 </html>
