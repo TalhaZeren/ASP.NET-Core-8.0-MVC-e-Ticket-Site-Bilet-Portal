@@ -69,8 +69,8 @@ namespace BiletPortal.Controllers
 
             if (result.Succeeded)
             {
-                MimeMessage mimeMessage = new MimeMessage();    
-                MailboxAddress mailBoxAddressFrom = new MailboxAddress("Bilet Portal","talhazeren97@gmail.com");
+                MimeMessage mimeMessage = new MimeMessage();
+                MailboxAddress mailBoxAddressFrom = new MailboxAddress("Bilet Portal", "talhazeren97@gmail.com"); // My mail address as example
                 MailboxAddress mailBoxAdressTo = new MailboxAddress("User", appUser.Email);
                 mimeMessage.From.Add(mailBoxAddressFrom);
                 mimeMessage.To.Add(mailBoxAdressTo);
@@ -80,7 +80,8 @@ namespace BiletPortal.Controllers
                 mimeMessage.Subject = "Bilet Portal";
                 SmtpClient smtpClient = new SmtpClient();
                 smtpClient.Connect("smtp.gmail.com",587,false);
-                smtpClient.Authenticate("talhazeren97@gmail.com", "vwub jxar zcru ieqq");
+                smtpClient.Authenticate("talhazeren97@gmail.com", "Your mail password"); // you need to create your password in your
+                                                                                         // mail account after allowed two-step verification
                 smtpClient.Send(mimeMessage);
                 smtpClient.Disconnect(true);
                 TempData["Mail"] = appUserRegisterDto.Email;

@@ -94,7 +94,8 @@ namespace BiletPortal.Controllers
                         mimeMessage.Subject = "Bilet Portal";
                         SmtpClient smtpClient = new SmtpClient();
                         smtpClient.Connect("smtp.gmail.com", 587, false);
-                        smtpClient.Authenticate("talhazeren97@gmail.com", "vwub jxar zcru ieqq");
+                        smtpClient.Authenticate("talhazeren97@gmail.com", "Your email password"); // you need to create your password in your
+                                                                                                  // mail account after allowed two-step verification
                         smtpClient.Send(mimeMessage);
                         smtpClient.Disconnect(true);
                         TempData["Mail"] = user.Email;
