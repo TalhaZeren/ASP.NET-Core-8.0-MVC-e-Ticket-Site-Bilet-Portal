@@ -4,10 +4,12 @@ From the frontend side, the project uses HTML, CSS, SCSS, and JavaScript to deli
 
 
 <img width="1872" height="828" alt="HomePage" src="https://github.com/user-attachments/assets/ead4f557-9daa-4971-99aa-25cef5132feb" />
-
+<b>
+<b>
+<b>
 
 <img width="1778" height="777" alt="sadasdas" src="https://github.com/user-attachments/assets/0e9aae6e-e92c-422c-983a-605e7c372aaf" />
-
+<b>
 
 <img width="1012" height="782" alt="register" src="https://github.com/user-attachments/assets/855a5ff5-d251-4d9b-8b8a-ffef0bb78d95" />
 
