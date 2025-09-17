@@ -2,7 +2,7 @@ The Bilet Portal is a web-based e-ticketing application built using ASP.NET Core
 
 From the frontend side, the project uses HTML, CSS, SCSS, and JavaScript to deliver a responsive, styled application. Static assets are managed under a wwwroot folder, while server-side functionality is implemented in C#. The file structure indicates that the project incorporates session management to track user state, such as login status or shopping cart contents. Overall, the Bilet Portal aims to provide a modern and scalable e-ticketing experience, taking advantage of recent .NET Core advances for performance, security, and modularity. The codebase is publicly available on GitHub under the user TalhaZeren, and though it has modest usage at this point, it is built following solid design practices that would allow it to be adapted or extended for real-world event ticketing platforms.
 
-Main PAge
+Main Page
 <img width="1872" height="828" alt="HomePage" src="https://github.com/user-attachments/assets/ead4f557-9daa-4971-99aa-25cef5132feb" />
 </p>
 
